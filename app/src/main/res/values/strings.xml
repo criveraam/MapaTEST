@@ -7,10 +7,11 @@
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
 
-    <string name="title_activity_fullscreen">FullscreenActivity</string>
+    <string name="title_activity_fullscreen">MAP</string>
     <string name="dummy_button">Dummy Button</string>
     <string name="dummy_content">DUMMY\nCONTENT</string>
     <string name="destino">Agrega tu destino</string>
+    <string name="destiny_update">Actualizando destino...</string>
 
     <string name="API_KEY">AIzaSyDjKCa4UdNi36jf8gO0FyEw-N5wDn_hLK4</string>
 </resources>

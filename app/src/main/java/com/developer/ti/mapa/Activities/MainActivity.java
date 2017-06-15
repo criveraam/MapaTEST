@@ -12,6 +12,8 @@ import android.util.Log;
 import android.view.MenuItem;
 import android.widget.TextView;
 
+import com.developer.ti.mapa.Fragments.ConfirmRouteFragment;
+import com.developer.ti.mapa.Fragments.DriverDestinationFragment;
 import com.developer.ti.mapa.Fragments.DriverOriginFragment;
 import com.developer.ti.mapa.Fragments.HomeFragment;
 import com.developer.ti.mapa.Helper.MySharePreferences;
@@ -23,7 +25,6 @@ public class MainActivity extends AppCompatActivity {
     private static final String TAG = MainActivity.class.getSimpleName();
     private TextView _titleTop;
     private BottomNavigationView _navigation;
-    private boolean checkItem = false;
 
     private BottomNavigationView.OnNavigationItemSelectedListener mOnNavigationItemSelectedListener
             = new BottomNavigationView.OnNavigationItemSelectedListener() {
@@ -57,14 +58,13 @@ public class MainActivity extends AppCompatActivity {
         _navigation.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener);
         startService(new Intent(getBaseContext(), OnClearFromRecentService.class));
         selectFragment(_navigation.getMenu().getItem(0));
-        Log.e(TAG, "click" + checkItem);
     }
 
     private void selectFragment(MenuItem item){
         Fragment fragmentoGenerico = null;
         switch (item.getItemId()){
             case R.id.navigation_home:
-                    fragmentoGenerico = new HomeFragment();
+                    fragmentoGenerico = new ConfirmRouteFragment();
                 break;
             case R.id.navigation_running:
                     fragmentoGenerico = new DriverOriginFragment();

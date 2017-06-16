@@ -2,6 +2,7 @@ package com.developer.ti.mapa.Fragments;
 
 
 import android.app.DatePickerDialog;
+import android.app.Dialog;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.DialogFragment;
@@ -15,19 +16,21 @@ import android.widget.DatePicker;
 import android.widget.LinearLayout;
 import android.widget.Switch;
 import android.widget.TextView;
+import android.widget.Toast;
 
+import com.developer.ti.mapa.Helper.DialogDays;
 import com.developer.ti.mapa.Helper.TimePickerFragment;
 import com.developer.ti.mapa.R;
 
 import java.util.Calendar;
 
-public class ConfirmRouteFragment extends Fragment {
+public class ConfirmRouteFragment extends Fragment implements View.OnClickListener {
     private static final String TAG = ConfirmRouteFragment.class.getSimpleName();
     private static final String ARG_PARAM1 = "param1";
     private static final String ARG_PARAM2 = "param2";
     private String mParam1;
     private String mParam2;
-    private Switch _sTrip;
+    private Switch _sTrip, _mDays;
     private View rootView;
     private LinearLayout _llContentDate1, _llContentDate2;
     private TextView _tvDate1, _tvDate2, _tvHoure1, _tvHoure2;
@@ -64,10 +67,16 @@ public class ConfirmRouteFragment extends Fragment {
         _tvDate1 = (TextView) rootView.findViewById(R.id.text_view_date1);
         _tvDate2 = (TextView) rootView.findViewById(R.id.text_view_date2);
         _sTrip = (Switch) rootView.findViewById(R.id.switch_trip);
+        _mDays = (Switch) rootView.findViewById(R.id.switch_days);
+
 
         activeReturnTrip(_sTrip);
         date(_llContentDate1, _tvDate1, 1);
         date(_llContentDate2, _tvDate2, 2);
+
+        _mDays.setOnClickListener(this);
+
+
     }
 
     @Override
@@ -114,5 +123,13 @@ public class ConfirmRouteFragment extends Fragment {
     }
 
 
-
+    @Override
+    public void onClick(View v) {
+        switch (v.getId()){
+            case R.id.switch_days:
+                Toast.makeText(v.getContext(), "1", Toast.LENGTH_SHORT).show();
+                DialogDays.dialog(getContext());
+                break;
+        }
+    }
 }

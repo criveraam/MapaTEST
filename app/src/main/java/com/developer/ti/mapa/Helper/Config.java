@@ -10,9 +10,10 @@ import android.view.animation.Animation;
 public class Config {
     public static final String URL = "http://maps.googleapis.com/maps/api/geocode/json?";
     public static final String URL_DIRECTION = "https://maps.googleapis.com/maps/api/directions/json?";
-
     public static final int RESULT_OK = -1;
     public static final int RESULT_CANCELED = 0;
+
+    public static StringBuffer DAYS = null;
 
 
     public static Animation animationIn(){

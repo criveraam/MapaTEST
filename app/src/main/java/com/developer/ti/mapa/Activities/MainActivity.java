@@ -13,6 +13,7 @@ import android.view.MenuItem;
 import android.widget.TextView;
 
 import com.developer.ti.mapa.Fragments.ConfirmRouteFragment;
+import com.developer.ti.mapa.Fragments.DriverDatasRouteFragment;
 import com.developer.ti.mapa.Fragments.DriverDestinationFragment;
 import com.developer.ti.mapa.Fragments.DriverOriginFragment;
 import com.developer.ti.mapa.Fragments.HomeFragment;
@@ -64,7 +65,7 @@ public class MainActivity extends AppCompatActivity {
         Fragment fragmentoGenerico = null;
         switch (item.getItemId()){
             case R.id.navigation_home:
-                    fragmentoGenerico = new ConfirmRouteFragment();
+                    fragmentoGenerico = new DriverDatasRouteFragment();
                 break;
             case R.id.navigation_running:
                     fragmentoGenerico = new DriverOriginFragment();

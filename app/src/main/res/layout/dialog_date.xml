@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
+    android:background="@color/colorIcons"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="20dp">
+        <TextView
+            android:id="@+id/text_view_dialog_date"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="right"
+            android:textColor="@color/colorPrimary"
+            android:textStyle="bold"
+            android:textSize="24dp"
+            android:text="01-01-2016"/>
+    </LinearLayout>
+
+    <com.prolificinteractive.materialcalendarview.MaterialCalendarView
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:id="@+id/calendar_view_dialog_date"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/colorIcons"
+        android:layout_weight="1"
+        app:mcv_showOtherDates="all"
+        app:mcv_selectionColor="@color/colorPrimary"
+        tools:layout_editor_absoluteY="50dp"
+        tools:layout_editor_absoluteX="8dp" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="10dp">
+        <Button
+            android:id="@+id/button_dialog_confirm"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/colorPrimary"
+            android:text="Confirmar Fecha"
+            android:textColor="@color/colorIcons" />
+    </LinearLayout>
+</LinearLayout>

@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="colorPrimary">#00E094</color>
+    <color name="colorPrimary">#00e094</color>
     <color name="colorPrimary_dark">#00E094</color>
     <color name="colorPrimary_light">#B2EBF2</color>
     <color name="colorAccent">#009688</color>
     <color name="colorPrimary_text">#212121</color>
     <color name="colorSecondary_text">#757575</color>
     <color name="colorLetters">#e64c3d</color>
-    <color name="colorIcons">#FFFFFF</color>
+    <color name="colorIcons">#ffffff</color>
     <color name="colorDivider">#BDBDBD</color>
     <color name="colorBackgroundFragment">#FFFFFF</color>
 

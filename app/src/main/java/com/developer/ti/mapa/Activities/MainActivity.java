@@ -17,6 +17,7 @@ import com.developer.ti.mapa.Fragments.DriverDatasRouteFragment;
 import com.developer.ti.mapa.Fragments.DriverDestinationFragment;
 import com.developer.ti.mapa.Fragments.DriverOriginFragment;
 import com.developer.ti.mapa.Fragments.HomeFragment;
+import com.developer.ti.mapa.Fragments.ProfileDriverFragment;
 import com.developer.ti.mapa.Helper.MySharePreferences;
 import com.developer.ti.mapa.Helper.OnClearFromRecentService;
 import com.developer.ti.mapa.R;
@@ -65,7 +66,7 @@ public class MainActivity extends AppCompatActivity {
         Fragment fragmentoGenerico = null;
         switch (item.getItemId()){
             case R.id.navigation_home:
-                    fragmentoGenerico = new DriverDatasRouteFragment();
+                    fragmentoGenerico = new ProfileDriverFragment();
                 break;
             case R.id.navigation_running:
                     fragmentoGenerico = new DriverOriginFragment();

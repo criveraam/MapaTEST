@@ -66,7 +66,6 @@ public class DriverDatasRouteFragment extends Fragment {
         _llContentDate2 = (LinearLayout) rootView.findViewById(R.id.linear_layout_content_date2);
         _switchRoudeTrip = (Switch) rootView.findViewById(R.id.switch_round_trip);
 
-
         // verifica si el conductor desea un viaje redondo
         activeReturnTrip(_switchRoudeTrip);
         // Dialog picker de fecha ida
@@ -82,13 +81,7 @@ public class DriverDatasRouteFragment extends Fragment {
     private void activeReturnTrip(Switch switchActive){
         switchActive.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-                if(isChecked == false){
-                    _llContentDate2.startAnimation(Config.animationOut());
-                    _llContentDate2.setVisibility(View.GONE);
-                }else{
-                    _llContentDate2.startAnimation(Config.animationIn());
-                    _llContentDate2.setVisibility(View.VISIBLE);
-                }
+                Log.e(TAG, "-->" + isChecked);
             }
         });
     }

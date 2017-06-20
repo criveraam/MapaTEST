@@ -14,4 +14,6 @@
     <string name="destiny_update">Actualizando destino...</string>
 
     <string name="API_KEY">AIzaSyDjKCa4UdNi36jf8gO0FyEw-N5wDn_hLK4</string>
+    <string name="texto_perfil">Edita tu perfil y añade una minibiografia</string>
+    <string name="texto_editar_perfil">Los usuarios ncon un perfil completo tienen más probabilidad de encontrar compañeros de viaje</string>
 </resources>

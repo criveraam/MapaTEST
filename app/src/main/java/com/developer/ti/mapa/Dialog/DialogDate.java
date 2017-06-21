@@ -1,4 +1,4 @@
-package com.developer.ti.mapa.Helper;
+package com.developer.ti.mapa.Dialog;
 
 import android.app.Dialog;
 import android.content.Context;

@@ -1,11 +1,8 @@
 package com.developer.ti.mapa.Fragments;
 
-import android.app.Dialog;
 import android.content.Context;
-import android.net.Uri;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
-import android.support.v4.app.DialogFragment;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.ActionBar;
@@ -13,22 +10,25 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.view.animation.Animation;
-import android.view.animation.AnimationUtils;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
-import android.widget.Toast;
 
-import com.developer.ti.mapa.Helper.Config;
+import com.developer.ti.mapa.Dialog.DialogInformacionINEIFE;
+import com.developer.ti.mapa.Dialog.DialogPicture;
+import com.developer.ti.mapa.Dialog.DialogProfileAutobiography;
 import com.developer.ti.mapa.R;
 
-public class ProfileInformationDriverFragment extends Fragment {
+public class ProfileInformationDriverFragment extends Fragment implements View.OnClickListener{
     private static final String ARG_PARAM1 = "param1";
     private static final String ARG_PARAM2 = "param2";
     private String mParam1;
     private String mParam2;
     private View rootView;
+    private ImageView _ivPicture;
+    private LinearLayout _llAutobiography;
+    private TextView _tvIneIfe;
+    private FragmentTransaction ft;
 
     public ProfileInformationDriverFragment() {
         // Required empty public constructor
@@ -56,26 +56,15 @@ public class ProfileInformationDriverFragment extends Fragment {
     public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
+        rootView = view;
         setToolbarTitle();
-
-        LinearLayout ll = (LinearLayout) view.findViewById(R.id.linear_layout_autobiography);
-        ll.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                FragmentTransaction ft = getFragmentManager().beginTransaction();
-                MyDialogFragment frag = new MyDialogFragment();
-                frag.show(ft, "txn_tag");
-            }
-        });
-
+        init();
     }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         return inflater.inflate(R.layout.fragment_profile_information_driver, container, false);
-
-
     }
 
     @Override
@@ -86,7 +75,27 @@ public class ProfileInformationDriverFragment extends Fragment {
     @Override
     public void onDetach() {
         super.onDetach();
+    }
 
+    @Override
+    public void onClick(View v) {
+        ft = getFragmentManager().beginTransaction();
+        switch (v.getId()){
+            case R.id.image_view_picture:
+                DialogPicture frag1 = new DialogPicture();
+                frag1.show(ft, "txn_tag");
+                break;
+            case R.id.linear_layout_autobiography:
+                DialogProfileAutobiography frag = new DialogProfileAutobiography();
+                frag.show(ft, "txn_tag");
+                break;
+            case R.id.button_edit_picture:
+                break;
+            case R.id.text_view_ine_ife:
+                DialogInformacionINEIFE frag2 = new DialogInformacionINEIFE();
+                frag2.show(ft, "txt_ine_ife");
+                break;
+        }
     }
 
     private void setToolbarTitle(){
@@ -100,47 +109,14 @@ public class ProfileInformationDriverFragment extends Fragment {
         _titleTop.setText("Perfil");
     }
 
-    static public class MyDialogFragment extends DialogFragment {
-        ImageView imageViewClose;
-        Dialog dialog;
-        @Override
-        public void onCreate(Bundle savedInstanceState) {
-            super.onCreate(savedInstanceState);
-            setStyle(DialogFragment.STYLE_NORMAL, R.style.MY_DIALOG);
-        }
+    private void init(){
+        _ivPicture = (ImageView) rootView.findViewById(R.id.image_view_picture);
+        _llAutobiography = (LinearLayout) rootView.findViewById(R.id.linear_layout_autobiography);
+        _tvIneIfe = (TextView) rootView.findViewById(R.id.text_view_ine_ife);
 
-        @Override
-        public void onStart() {
-            super.onStart();
-            dialog = getDialog();
-            if (dialog!=null){
-                int width = ViewGroup.LayoutParams.MATCH_PARENT;
-                int height = ViewGroup.LayoutParams.MATCH_PARENT;
-                dialog.getWindow().setLayout(width, height);
-            }
-        }
-
-        @Override
-        public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
-            super.onViewCreated(view, savedInstanceState);
-            imageViewClose = (ImageView) view.findViewById(R.id.image_view_close);
-
-            imageViewClose.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-
-                    dialog.dismiss();
-                }
-            });
-        }
-
-        @Override
-        public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-            View root = inflater.inflate(R.layout.dialog_profile_autobiography, container, false);
-            final Animation anim = AnimationUtils.loadAnimation(getActivity(),  R.anim.fadein);
-            root.startAnimation(anim);
-            return root;
-        }
-
+        _ivPicture.setOnClickListener(this);
+        _llAutobiography.setOnClickListener(this);
+        _tvIneIfe.setOnClickListener(this);
     }
+
 }

@@ -1,30 +1,28 @@
 package com.developer.ti.mapa.Dialog;
 
 import android.app.Dialog;
-import android.support.v4.app.DialogFragment;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
-import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentManager;
-import android.support.v4.app.FragmentTransaction;
+import android.support.v4.app.DialogFragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.view.animation.Animation;
-import android.view.animation.AnimationUtils;
 import android.widget.Button;
 import android.widget.ImageView;
 
+import com.developer.ti.mapa.Helper.SQLiteHelper;
 import com.developer.ti.mapa.R;
+
 /**
- * Created by tecnicoairmovil on 20/06/17.
+ * Created by tecnicoairmovil on 21/06/17.
  */
 
-public class DialogProfileAutobiography extends DialogFragment implements View.OnClickListener{
-    private ImageView _imageViewClose;
+public class DialogInformacionINEIFE extends DialogFragment implements View.OnClickListener{
+    private static final String TAG = DialogInformacionINEIFE.class.getSimpleName();
     private Dialog dialog;
-    private Button _btnEditPicture;
     private View rootView;
+    private ImageView _ivClose;
+    private Button _btnConfirm;
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -35,7 +33,7 @@ public class DialogProfileAutobiography extends DialogFragment implements View.O
     public void onStart() {
         super.onStart();
         dialog = getDialog();
-        if (dialog!=null){
+        if(dialog != null){
             int width = ViewGroup.LayoutParams.MATCH_PARENT;
             int height = ViewGroup.LayoutParams.MATCH_PARENT;
             dialog.getWindow().setLayout(width, height);
@@ -48,13 +46,13 @@ public class DialogProfileAutobiography extends DialogFragment implements View.O
         rootView = view;
 
         init();
+
     }
 
+    @Nullable
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        rootView = inflater.inflate(R.layout.dialog_profile_autobiography, container, false);
-        final Animation anim = AnimationUtils.loadAnimation(getActivity(),  R.anim.fadein);
-        //root.startAnimation(anim);
+    public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, Bundle savedInstanceState) {
+        rootView = inflater.inflate(R.layout.dialog_information_ineife, container, false);
         return rootView;
     }
 
@@ -67,22 +65,20 @@ public class DialogProfileAutobiography extends DialogFragment implements View.O
     @Override
     public void onClick(View v) {
         switch (v.getId()){
-            //FragmentTransaction transaction = getContext().getChildFragmentManager().beginTransaction();
-            //ft = getFragmentManager().beginTransaction();
-            case R.id.button_edit_picture:
-                DialogPicture frag1 = new DialogPicture();
-                frag1.show(getActivity().getSupportFragmentManager(), "txn_tag");
-                break;
             case R.id.image_view_close:
                 dialog.dismiss();
+                break;
+            case R.id.button_confirm_datas_ine_ife:
+                DialogINEIFE frag1 = new DialogINEIFE();
+                frag1.show(getActivity().getSupportFragmentManager(), "txn_tag");
                 break;
         }
     }
 
     private void init(){
-        _imageViewClose = (ImageView) rootView.findViewById(R.id.image_view_close);
-        _btnEditPicture = (Button) rootView.findViewById(R.id.button_edit_picture);
-        _imageViewClose.setOnClickListener(this);
-        _btnEditPicture.setOnClickListener(this);
+        _ivClose = (ImageView) rootView.findViewById(R.id.image_view_close);
+        _btnConfirm = (Button) rootView.findViewById(R.id.button_confirm_datas_ine_ife);
+        _ivClose.setOnClickListener(this);
+        _btnConfirm.setOnClickListener(this);
     }
 }

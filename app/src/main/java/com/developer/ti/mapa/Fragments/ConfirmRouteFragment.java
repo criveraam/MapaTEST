@@ -20,11 +20,10 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.Switch;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.developer.ti.mapa.Helper.Config;
-import com.developer.ti.mapa.Helper.DialogDate;
-import com.developer.ti.mapa.Helper.DialogDays;
+import com.developer.ti.mapa.Dialog.DialogDate;
+import com.developer.ti.mapa.Dialog.DialogDays;
 import com.developer.ti.mapa.Helper.TimePickerFragment;
 import com.developer.ti.mapa.R;
 

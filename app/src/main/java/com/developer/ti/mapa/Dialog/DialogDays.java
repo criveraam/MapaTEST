@@ -1,6 +1,5 @@
-package com.developer.ti.mapa.Helper;
+package com.developer.ti.mapa.Dialog;
 
-import android.app.Activity;
 import android.app.Dialog;
 import android.content.Context;
 import android.support.v4.app.Fragment;
@@ -11,8 +10,8 @@ import android.widget.Button;
 import android.widget.CompoundButton;
 import android.widget.ImageView;
 import android.widget.Switch;
-import android.widget.Toast;
 
+import com.developer.ti.mapa.Helper.Config;
 import com.developer.ti.mapa.R;
 
 /**

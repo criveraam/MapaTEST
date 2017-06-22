@@ -62,14 +62,11 @@ public class DialogPicture extends DialogFragment implements View.OnClickListene
     public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
         rootView = view;
-
         init();
 
         sqLiteHelper = new SQLiteHelper(getContext(), "Picture.profile", null, 1);
-
         sqLiteHelper.queryData("CREATE TABLE IF NOT EXISTS PICTURE (" +
                 "Id INTEGER PRIMARY KEY AUTOINCREMENT, name VARCHAR, description VARCHAR, image BLOG)");
-
 
     }
 

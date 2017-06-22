@@ -11,6 +11,7 @@ android {
         versionName "1.0"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
         vectorDrawables.useSupportLibrary = true
+        multiDexEnabled true
     }
     buildTypes {
         release {
@@ -35,5 +36,6 @@ dependencies {
     compile 'com.google.android.gms:play-services:8.4.0'
     compile 'com.mcxiaoke.volley:library:1.0.19'
     compile 'de.hdodenhof:circleimageview:2.1.0'
+    compile 'com.rmtheis:tess-two:5.4.1'
     testCompile 'junit:junit:4.12'
 }

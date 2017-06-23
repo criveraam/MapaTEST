@@ -57,6 +57,7 @@ public class DialogINEIFE extends DialogFragment implements View.OnClickListener
     private View rootView;
     private SurfaceView cameraView;
     private TextView textView;
+    private ImageView _ivClose;
     CameraSource cameraSource;
     final int RequestCameraPermissionID = 1001;
 
@@ -157,9 +158,7 @@ public class DialogINEIFE extends DialogFragment implements View.OnClickListener
                                     TextBlock item = items.valueAt(i);
                                     stringBuilder.append(item.getValue());
                                     stringBuilder.append("\n");
-
                                 }
-
                                 textView.setText(stringBuilder.toString());
                             }
                         });
@@ -185,10 +184,18 @@ public class DialogINEIFE extends DialogFragment implements View.OnClickListener
 
     @Override
     public void onClick(View v) {
-
+        switch (v.getId()){
+            case R.id.image_view_close:
+                dialog.dismiss();
+                break;
+        }
     }
+
     private void init(){
-
+        _ivClose = (ImageView) rootView.findViewById(R.id.image_view_close);
+        _ivClose.setOnClickListener(this);
     }
+
+
 
 }

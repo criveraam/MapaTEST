@@ -10,6 +10,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
@@ -17,6 +18,7 @@ import android.widget.TextView;
 import com.developer.ti.mapa.Dialog.DialogInformacionINEIFE;
 import com.developer.ti.mapa.Dialog.DialogPicture;
 import com.developer.ti.mapa.Dialog.DialogProfileAutobiography;
+import com.developer.ti.mapa.Dialog.DialogValidatePhone;
 import com.developer.ti.mapa.R;
 
 public class ProfileInformationDriverFragment extends Fragment implements View.OnClickListener{
@@ -27,7 +29,7 @@ public class ProfileInformationDriverFragment extends Fragment implements View.O
     private View rootView;
     private ImageView _ivPicture;
     private LinearLayout _llAutobiography;
-    private TextView _tvIneIfe;
+    private TextView _tvIneIfe, _tvValidateNumberPhone;
     private FragmentTransaction ft;
 
     public ProfileInformationDriverFragment() {
@@ -81,19 +83,27 @@ public class ProfileInformationDriverFragment extends Fragment implements View.O
     public void onClick(View v) {
         ft = getFragmentManager().beginTransaction();
         switch (v.getId()){
+            // TODO: abre el dialogo de captura de foto de perfil
             case R.id.image_view_picture:
-                DialogPicture frag1 = new DialogPicture();
-                frag1.show(ft, "txn_tag");
+                DialogPicture dp = new DialogPicture();
+                dp.show(ft, "txn_picture_profile");
                 break;
+            // TODO: abre dialogo de datos de perfil
             case R.id.linear_layout_autobiography:
-                DialogProfileAutobiography frag = new DialogProfileAutobiography();
-                frag.show(ft, "txn_tag");
+                DialogProfileAutobiography dpa = new DialogProfileAutobiography();
+                dpa.show(ft, "txn_profile_autobiography");
                 break;
             case R.id.button_edit_picture:
                 break;
+            // TODO: abre dialogo de captura de validacion de credencial
             case R.id.text_view_ine_ife:
-                DialogInformacionINEIFE frag2 = new DialogInformacionINEIFE();
-                frag2.show(ft, "txt_ine_ife");
+                DialogInformacionINEIFE diii = new DialogInformacionINEIFE();
+                diii.show(ft, "txt_file_ine_ife");
+                break;
+            // TODO: Abre dialog de validacion de numero telefonico
+            case R.id.text_view_validate_number_phone:
+                DialogValidatePhone dvp = new DialogValidatePhone();
+                dvp.show(ft, "txt_validate_number_phone");
                 break;
         }
     }
@@ -113,10 +123,14 @@ public class ProfileInformationDriverFragment extends Fragment implements View.O
         _ivPicture = (ImageView) rootView.findViewById(R.id.image_view_picture);
         _llAutobiography = (LinearLayout) rootView.findViewById(R.id.linear_layout_autobiography);
         _tvIneIfe = (TextView) rootView.findViewById(R.id.text_view_ine_ife);
+        _tvValidateNumberPhone = (TextView) rootView.findViewById(R.id.text_view_validate_number_phone);
+
+
 
         _ivPicture.setOnClickListener(this);
         _llAutobiography.setOnClickListener(this);
         _tvIneIfe.setOnClickListener(this);
+        _tvValidateNumberPhone.setOnClickListener(this);
     }
 
 }

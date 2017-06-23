@@ -1,5 +1,8 @@
 package com.developer.ti.mapa.Helper;
 
+import android.content.Context;
+import android.support.design.widget.Snackbar;
+import android.view.ViewGroup;
 import android.view.animation.AlphaAnimation;
 import android.view.animation.Animation;
 
@@ -27,4 +30,6 @@ public class Config {
         out.setDuration(1600);
         return out;
     }
+
+
 }

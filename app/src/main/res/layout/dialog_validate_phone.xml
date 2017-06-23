@@ -1,0 +1,136 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:custom="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:id="@+id/content_dialog"
+    android:orientation="vertical"
+    android:background="@color/colorWhite"
+    tools:context="com.developer.ti.mapa.Dialog.DialogValidatePhone">
+
+    <RelativeLayout
+        android:id="@+id/relative_layout_content_toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="57dp"
+        android:background="@color/colorPrimary"
+        android:gravity="center_vertical"
+        android:orientation="horizontal">
+        <ImageView
+            android:id="@+id/image_view_close"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            app:srcCompat="@drawable/ic_close_dialog" />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:gravity="center_vertical"
+            android:layout_weight="1"
+            android:textColor="#FFFFFF"
+            android:text="Validación de telefono"
+            android:layout_alignParentTop="true"
+            android:layout_centerHorizontal="true" />
+    </RelativeLayout>
+
+    <LinearLayout
+        android:id="@+id/linear_layout_content_icons"
+        android:layout_below="@+id/relative_layout_content_toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:padding="20dp"
+        android:gravity="center_horizontal">
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="10dp"
+            app:srcCompat="@drawable/ic_phone_android_icon"/>
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="10dp"
+            android:layout_marginLeft="-60dp"
+            android:layout_marginTop="-10dp"
+            app:srcCompat="@drawable/ic_check_circle_color"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/linear_layout_content_data"
+        android:layout_below="@+id/linear_layout_content_icons"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="20dp"
+        android:orientation="vertical">
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Confirma tu telèfono celular"
+            android:gravity="center"
+            android:textStyle="bold"
+            android:textSize="24dp"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:layout_marginTop="10dp"
+            android:text="Nosotros te enviare mos,  un mensaje con un código de confirmación:"
+            android:textSize="12dp"/>
+
+        <EditText
+            android:id="@+id/edit_text_number_phone"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:layout_marginTop="10dp"
+            android:gravity="center"
+            android:background="@drawable/custonbordertextview"
+            android:hint="Número de teléfono"
+            android:inputType="number"
+            android:textSize="15dp"
+            android:textColor="@color/colorPrimary"/>
+
+        <TextView
+            android:id="@+id/text_view_msj_wait"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="En un momento recibiras el codigo de confirmación..."
+            android:visibility="invisible"
+            android:gravity="center"
+            android:layout_marginTop="10dp"
+            android:padding="10dp"
+            android:textStyle="italic"/>
+
+        <EditText
+            android:id="@+id/edit_text_code"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:layout_marginTop="10dp"
+            android:gravity="center"
+            android:visibility="invisible"
+            android:background="@drawable/custonbordertextviewconfirm"
+            android:hint="Ingresa el código"
+            android:textSize="15dp"
+            android:textColorHint="@color/colorWhite"
+            android:textColor="@color/colorWhite"/>
+    </LinearLayout>
+
+
+    <com.dd.processbutton.iml.ActionProcessButton
+        android:id="@+id/btnAction"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Enviar"
+        android:layout_margin="20dp"
+        android:textColor="@android:color/white"
+        android:textSize="18sp"
+        android:layout_alignParentBottom="true"
+        custom:pb_colorComplete="@color/colorPrimary"
+        custom:pb_colorNormal="@color/blue_normal"
+        custom:pb_colorPressed="@color/blue_pressed"
+        custom:pb_colorProgress="@color/colorLetters"
+        custom:pb_textComplete="Enviado"
+        custom:pb_textProgress="Espere un momento" />
+
+</RelativeLayout>

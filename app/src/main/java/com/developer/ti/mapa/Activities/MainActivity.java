@@ -45,6 +45,7 @@ public class MainActivity extends AppCompatActivity {
                 case R.id.navigation_list:
                     return true;
                 case R.id.navigation_dashboard:
+                    selectFragment(item);
                     return true;
             }
             return false;
@@ -66,11 +67,13 @@ public class MainActivity extends AppCompatActivity {
         Fragment fragmentoGenerico = null;
         switch (item.getItemId()){
             case R.id.navigation_home:
-                    fragmentoGenerico = new ProfileDriverFragment();
+                fragmentoGenerico = new HomeFragment();
                 break;
             case R.id.navigation_running:
-                    fragmentoGenerico = new DriverOriginFragment();
-
+                fragmentoGenerico = new DriverOriginFragment();
+                break;
+            case R.id.navigation_dashboard:
+                fragmentoGenerico = new ProfileDriverFragment();
                 break;
         }
             FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();

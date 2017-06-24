@@ -17,7 +17,7 @@
             android:layout_height="match_parent"
             android:paddingLeft="10dp"
             android:paddingRight="10dp"
-            app:srcCompat="@drawable/ic_close_dialog" />
+            app:srcCompat="@drawable/ic_keyboard_arrow_left" />
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
@@ -49,28 +49,37 @@
                     android:layout_height="wrap_content"
                     app:srcCompat="@drawable/ic_account_circle" />
 
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:srcCompat="@drawable/ic_mode_edit"
+                    android:background="@drawable/customcircle"
+                    android:layout_marginLeft="-40dp"
+                    android:layout_marginTop="30dp"/>
+
                 <Button
                     android:id="@+id/button_edit_picture"
                     android:layout_width="match_parent"
                     android:layout_height="30dp"
                     android:text="Editar foto de perfil"
-                    android:textColor="@android:color/white"
-                    android:background="@color/colorPrimary"
+                    android:textColor="@color/colorPrimary"
+                    android:background="@drawable/custombuttonbackground"
                     android:textAppearance="@style/Widget.Design.AppBarLayout"
                     android:textSize="17dp"
-                    android:layout_margin="10dp"/>
+                    android:layout_margin="20dp"/>
+
             </LinearLayout>
 
             <TextView
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="30dp"
                 android:layout_marginTop="10dp"
+                android:background="@color/colorPrimary"
+                android:gravity="left|center_vertical"
+                android:paddingLeft="20dp"
                 android:text="Información personal"
                 android:textColor="@android:color/white"
-                android:background="@color/colorPrimary"
-                android:gravity="center"
-                android:padding="13dp"
-                android:textSize="17dp"/>
+                android:textSize="17dp" />
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -87,7 +96,8 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
-                        android:text="Soy"/>
+                        android:text="Soy"
+                        android:paddingLeft="10dp"/>
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
@@ -106,7 +116,8 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
-                        android:text="Nombre"/>
+                        android:text="Nombre"
+                        android:paddingLeft="10dp"/>
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
@@ -124,7 +135,8 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
-                        android:text="Apellidos"/>
+                        android:text="Apellidos"
+                        android:paddingLeft="10dp"/>
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
@@ -142,7 +154,8 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
-                        android:text="Año de Nacimiento"/>
+                        android:text="Año de Nacimiento"
+                        android:paddingLeft="10dp"/>
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
@@ -150,15 +163,141 @@
                         android:background="@drawable/custonbordertextview"
                         android:text="1991"/>
                 </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:padding="10dp"
+                    android:orientation="vertical">
+                    <EditText
+                        android:id="@+id/edit_text_code"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:layout_marginTop="10dp"
+                        android:inputType="textImeMultiLine"
+                        android:lines="3"
+                        android:minLines="3"
+                        android:gravity="top|left"
+                        android:maxLength="500"
+                        android:background="@drawable/custonbordertextview"
+                        android:hint="Ingresa tu descripción"
+                        android:textSize="15dp"
+                        android:textColor="@color/colorPrimary"/>
+                </LinearLayout>
                 <Button
                     android:layout_width="match_parent"
-                    android:layout_height="30dp"
-                    android:text="Editar perfil"
-                    android:textColor="@android:color/white"
-                    android:background="@color/colorPrimary"
+                    android:layout_height="35dp"
+                    android:layout_margin="10dp"
+                    android:background="@drawable/custombutton"
+                    android:text="Validar información"
                     android:textAppearance="@style/Widget.Design.AppBarLayout"
-                    android:textSize="17dp"
-                    android:layout_margin="10dp"/>
+                    android:textColor="@android:color/white"
+                    android:textSize="17dp" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="30dp"
+                    android:layout_marginTop="10dp"
+                    android:background="@color/colorPrimary"
+                    android:gravity="left|center_vertical"
+                    android:paddingLeft="20dp"
+                    android:text="Correo electrónico"
+                    android:textColor="@android:color/white"
+                    android:textSize="17dp" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:paddingTop="5dp"
+                    android:paddingRight="20dp"
+                    android:paddingBottom="5dp"
+                    android:paddingLeft="20dp"
+                    android:gravity="center_vertical">
+                    <ImageView
+                        android:layout_width="45dp"
+                        android:layout_height="35dp"
+                        app:srcCompat="@drawable/ic_mail" />
+                    <EditText
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:inputType="textEmailAddress"
+                        android:layout_marginLeft="10dp"
+                        android:background="@drawable/custonbordertextview"
+                        android:textColor="@color/black_overlay"
+                        android:text="compartamos@mail.com"
+                        android:textSize="15dp"/>
+                    <ImageView
+                        android:layout_width="30dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="10dp"
+                        app:srcCompat="@drawable/ic_check_circle_ok" />
+                </LinearLayout>
+                <Button
+                    android:layout_width="match_parent"
+                    android:layout_height="35dp"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginRight="20dp"
+                    android:layout_marginTop="5dp"
+                    android:layout_marginBottom="20dp"
+                    android:background="@drawable/custombutton"
+                    android:text="Guardar mail"
+                    android:textAppearance="@style/Widget.Design.AppBarLayout"
+                    android:textColor="@android:color/white"
+                    android:textSize="17dp" />
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="30dp"
+                    android:background="@color/colorPrimary"
+                    android:gravity="left|center_vertical"
+                    android:paddingLeft="20dp"
+                    android:text="Número de telefono"
+                    android:textColor="@android:color/white"
+                    android:textSize="17dp" />
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:paddingTop="5dp"
+                    android:paddingRight="20dp"
+                    android:paddingBottom="5dp"
+                    android:paddingLeft="20dp"
+                    android:gravity="center_vertical">
+                    <ImageView
+                        android:layout_width="45dp"
+                        android:layout_height="35dp"
+                        app:srcCompat="@drawable/ic_flag" />
+                    <EditText
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:inputType="number"
+                        android:layout_marginLeft="10dp"
+                        android:background="@drawable/custonbordertextview"
+                        android:textColor="@color/black_overlay"
+                        android:text="55-22334455"
+                        android:textSize="15dp"/>
+                    <ImageView
+                        android:layout_width="30dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="10dp"
+                        app:srcCompat="@drawable/ic_cancel"/>
+                </LinearLayout>
+
+                <Button
+                    android:layout_width="match_parent"
+                    android:layout_height="35dp"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginRight="20dp"
+                    android:layout_marginTop="5dp"
+                    android:layout_marginBottom="20dp"
+                    android:background="@drawable/custombutton"
+                    android:text="Guardar número"
+                    android:textAppearance="@style/Widget.Design.AppBarLayout"
+                    android:textColor="@android:color/white"
+                    android:textSize="17dp" />
 
             </LinearLayout>
 

@@ -22,11 +22,22 @@
                 android:orientation="horizontal"
                 android:padding="10dp">
 
-                <ImageView
-                    android:id="@+id/image_view_picture"
+                <RelativeLayout
                     android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    app:srcCompat="@drawable/ic_account_circle" />
+                    android:layout_height="wrap_content">
+                    <ImageView
+                        android:id="@+id/image_view_picture"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        app:srcCompat="@drawable/ic_account_circle" />
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        app:srcCompat="@drawable/ic_mode_edit"
+                        android:background="@drawable/customcircle"
+                        android:layout_alignParentBottom="true"
+                        android:layout_alignRight="@+id/image_view_picture"/>
+                </RelativeLayout>
 
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -208,9 +219,9 @@
 
                 <Button
                     android:layout_width="match_parent"
-                    android:layout_height="30dp"
+                    android:layout_height="35dp"
                     android:layout_margin="10dp"
-                    android:background="@color/colorPrimary"
+                    android:background="@drawable/custombutton"
                     android:text="Editar perfil"
                     android:textAppearance="@style/Widget.Design.AppBarLayout"
                     android:textColor="@android:color/white"
@@ -220,11 +231,11 @@
 
             <TextView
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="30dp"
                 android:layout_marginTop="10dp"
                 android:background="@color/colorPrimary"
-                android:gravity="center"
-                android:padding="13dp"
+                android:gravity="left|center_vertical"
+                android:paddingLeft="20dp"
                 android:text="Preferencias"
                 android:textColor="@android:color/white"
                 android:textSize="17dp" />
@@ -268,20 +279,20 @@
                 android:layout_width="match_parent"
                 android:layout_height="30dp"
                 android:layout_margin="10dp"
-                android:background="@color/colorPrimary"
-                android:text="Editar perfil"
+                android:background="@drawable/custombutton"
+                android:text="Editar preferencias"
                 android:textAppearance="@style/Widget.Design.AppBarLayout"
                 android:textColor="@android:color/white"
                 android:textSize="17dp" />
 
             <TextView
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="30dp"
                 android:layout_marginTop="10dp"
                 android:background="@color/colorPrimary"
-                android:gravity="center"
-                android:padding="13dp"
-                android:text="Preferencias"
+                android:gravity="left|center_vertical"
+                android:paddingLeft="20dp"
+                android:text="Auto"
                 android:textColor="@android:color/white"
                 android:textSize="17dp" />
 
@@ -294,37 +305,58 @@
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:gravity="center_vertical"
-                    android:orientation="horizontal">
-
-                    <ImageView
-                        android:layout_width="wrap_content"
+                    android:orientation="horizontal"
+                    android:gravity="center_vertical">
+                    <LinearLayout
+                        android:layout_width="150dp"
                         android:layout_height="wrap_content"
-                        android:padding="10dp"
-                        app:srcCompat="@drawable/ic_car" />
-
-                    <TextView
-                        android:layout_width="wrap_content"
+                        android:background="@color/colorGreyPrimary"
+                        android:gravity="center">
+                        <ImageView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            app:srcCompat="@drawable/ic_car" />
+                        <ImageView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            app:srcCompat="@drawable/ic_mode_edit"
+                            android:layout_marginLeft="-20dp"
+                            android:layout_marginBottom="-10dp"
+                            android:background="@drawable/customcircle"
+                            android:layout_alignParentBottom="true"/>
+                    </LinearLayout>
+                    <LinearLayout
+                        android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="Nombre del Carro"
-                        android:textSize="17dp" />
+                        android:orientation="vertical"
+                        android:paddingLeft="10dp">
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="CHEVROLET "/>
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Color: Blanco"/>
+                    </LinearLayout>
                 </LinearLayout>
 
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:orientation="horizontal">
+                    android:orientation="horizontal"
+                    android:paddingTop="10dp">
 
                     <Button
                         android:layout_width="match_parent"
                         android:layout_height="30dp"
                         android:layout_marginRight="10dp"
                         android:layout_weight="1"
-                        android:background="@color/colorPrimary"
+                        android:background="@drawable/custombuttonbackground"
                         android:gravity="center"
                         android:text="Editar"
                         android:textAppearance="@style/Widget.Design.AppBarLayout"
-                        android:textColor="@android:color/white"
+                        android:textColor="@color/colorPrimary"
                         android:textSize="17dp" />
 
                     <Button
@@ -332,11 +364,11 @@
                         android:layout_height="30dp"
                         android:layout_marginLeft="10dp"
                         android:layout_weight="1"
-                        android:background="@color/colorPrimary"
+                        android:background="@drawable/custombuttonbackground"
                         android:gravity="center"
                         android:text="Eliminar"
                         android:textAppearance="@style/Widget.Design.AppBarLayout"
-                        android:textColor="@android:color/white"
+                        android:textColor="@color/colorPrimary"
                         android:textSize="17dp" />
                 </LinearLayout>
             </LinearLayout>
@@ -345,8 +377,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="30dp"
                 android:layout_margin="10dp"
-                android:background="@color/colorPrimary"
-                android:text="Editar perfil"
+                android:background="@drawable/custombutton"
+                android:text="Añadir auto"
                 android:textAppearance="@style/Widget.Design.AppBarLayout"
                 android:textColor="@android:color/white"
                 android:textSize="17dp" />

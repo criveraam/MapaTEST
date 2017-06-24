@@ -8,7 +8,6 @@
     android:orientation="vertical"
     android:background="@color/colorWhite"
     tools:context="com.developer.ti.mapa.Dialog.DialogValidatePhone">
-
     <RelativeLayout
         android:id="@+id/relative_layout_content_toolbar"
         android:layout_width="match_parent"
@@ -31,106 +30,234 @@
             android:layout_alignParentTop="true"
             android:layout_centerHorizontal="true" />
     </RelativeLayout>
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/relative_layout_content_toolbar">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+            <LinearLayout
+                android:id="@+id/linear_layout_content_icons"
+                android:layout_below="@+id/relative_layout_content_toolbar"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:padding="20dp"
+                android:gravity="center_horizontal">
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:padding="10dp"
+                    app:srcCompat="@drawable/ic_phone_android_icon"/>
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:padding="10dp"
+                    android:layout_marginLeft="-60dp"
+                    android:layout_marginTop="-10dp"
+                    app:srcCompat="@drawable/ic_check_circle_color"/>
+            </LinearLayout>
+            <LinearLayout
+                android:id="@+id/linear_layout_content_data"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingTop="20dp"
+                android:paddingLeft="20dp"
+                android:paddingRight="20dp"
+                android:paddingBottom="70dp"
+                android:orientation="vertical">
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Confirma tu telèfono celular"
+                    android:gravity="center"
+                    android:textStyle="bold"
+                    android:textSize="24dp"/>
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:layout_marginTop="10dp"
+                    android:text="Nosotros te enviare mos,  un mensaje con un código de confirmación:"
+                    android:textSize="12dp"/>
+                <EditText
+                    android:id="@+id/edit_text_number_phone"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:layout_marginTop="10dp"
+                    android:gravity="center"
+                    android:maxLength="10"
+                    android:background="@drawable/custonbordertextview"
+                    android:hint="Número de teléfono"
+                    android:inputType="number"
+                    android:textSize="15dp"
+                    android:textColor="@color/colorPrimary"/>
+
+                <HorizontalScrollView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:scrollbars="horizontal"
+                    android:layout_marginTop="10dp">
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:orientation="horizontal"
+                        android:padding="10dp"
+                        android:background="@drawable/custonbordertextview">
+                        <LinearLayout
+                            android:id="@+id/linear_layout_01"
+                            android:layout_width="130dp"
+                            android:layout_height="wrap_content"
+                            android:gravity="center"
+                            android:orientation="vertical"
+                            android:paddingTop="10dp"
+                            android:paddingBottom="10dp"
+                            android:layout_marginLeft="10dp"
+                            android:layout_marginRight="10dp"
+                            android:background="@color/colorWhite">
+                            <ImageView
+                                android:layout_width="wrap_content"
+                                android:layout_height="match_parent"
+                                app:srcCompat="@drawable/ic_phone_android" />
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:gravity="center"
+                                android:textStyle="bold"
+                                android:textColor="@color/colorLetters"
+                                android:textSize="20dp"
+                                android:text="Telcel"/>
+                        </LinearLayout>
+                        <LinearLayout
+                            android:id="@+id/linear_layout_02"
+                            android:layout_width="130dp"
+                            android:layout_height="wrap_content"
+                            android:gravity="center"
+                            android:orientation="vertical"
+                            android:paddingTop="10dp"
+                            android:paddingBottom="10dp"
+                            android:layout_marginLeft="10dp"
+                            android:layout_marginRight="10dp"
+                            android:background="@color/colorWhite">
+                            <ImageView
+                                android:layout_width="wrap_content"
+                                android:layout_height="match_parent"
+                                app:srcCompat="@drawable/ic_phone_android" />
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:gravity="center"
+                                android:textStyle="bold"
+                                android:textColor="@color/colorLetters"
+                                android:textSize="20dp"
+                                android:text="Nextel"/>
+                        </LinearLayout>
+                        <LinearLayout
+                            android:id="@+id/linear_layout_03"
+                            android:layout_width="130dp"
+                            android:layout_height="wrap_content"
+                            android:gravity="center"
+                            android:orientation="vertical"
+                            android:paddingTop="10dp"
+                            android:paddingBottom="10dp"
+                            android:layout_marginLeft="10dp"
+                            android:layout_marginRight="10dp"
+                            android:background="@color/colorWhite">
+                            <ImageView
+                                android:layout_width="wrap_content"
+                                android:layout_height="match_parent"
+                                app:srcCompat="@drawable/ic_phone_android" />
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:gravity="center"
+                                android:textStyle="bold"
+                                android:textColor="@color/colorLetters"
+                                android:textSize="20dp"
+                                android:text="Unefon"/>
+                        </LinearLayout>
+                        <LinearLayout
+                            android:id="@+id/linear_layout_04"
+                            android:layout_width="130dp"
+                            android:layout_height="wrap_content"
+                            android:gravity="center"
+                            android:orientation="vertical"
+                            android:paddingTop="10dp"
+                            android:paddingBottom="10dp"
+                            android:layout_marginLeft="10dp"
+                            android:layout_marginRight="10dp"
+                            android:background="@color/colorWhite">
+                            <ImageView
+                                android:layout_width="wrap_content"
+                                android:layout_height="match_parent"
+                                app:srcCompat="@drawable/ic_phone_android" />
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:gravity="center"
+                                android:textStyle="bold"
+                                android:textColor="@color/colorLetters"
+                                android:textSize="20dp"
+                                android:text="Iusacell"/>
+                        </LinearLayout>
+                        <LinearLayout
+                            android:id="@+id/linear_layout_05"
+                            android:layout_width="130dp"
+                            android:layout_height="wrap_content"
+                            android:gravity="center"
+                            android:orientation="vertical"
+                            android:paddingTop="10dp"
+                            android:paddingBottom="10dp"
+                            android:layout_marginLeft="10dp"
+                            android:layout_marginRight="10dp"
+                            android:background="@color/colorWhite">
+                            <ImageView
+                                android:layout_width="wrap_content"
+                                android:layout_height="match_parent"
+                                app:srcCompat="@drawable/ic_phone_android" />
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:gravity="center"
+                                android:textStyle="bold"
+                                android:textColor="@color/colorLetters"
+                                android:textSize="20dp"
+                                android:text="Movistar"/>
+                        </LinearLayout>
+                    </LinearLayout>
+                </HorizontalScrollView>
+
+            </LinearLayout>
+
+        </LinearLayout>
+    </ScrollView>
 
     <LinearLayout
-        android:id="@+id/linear_layout_content_icons"
-        android:layout_below="@+id/relative_layout_content_toolbar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:padding="20dp"
-        android:gravity="center_horizontal">
-        <ImageView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:padding="10dp"
-            app:srcCompat="@drawable/ic_phone_android_icon"/>
-        <ImageView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:padding="10dp"
-            android:layout_marginLeft="-60dp"
-            android:layout_marginTop="-10dp"
-            app:srcCompat="@drawable/ic_check_circle_color"/>
-    </LinearLayout>
-
-    <LinearLayout
-        android:id="@+id/linear_layout_content_data"
-        android:layout_below="@+id/linear_layout_content_icons"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:padding="20dp"
-        android:orientation="vertical">
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Confirma tu telèfono celular"
-            android:gravity="center"
-            android:textStyle="bold"
-            android:textSize="24dp"/>
-
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:gravity="center"
-            android:layout_marginTop="10dp"
-            android:text="Nosotros te enviare mos,  un mensaje con un código de confirmación:"
-            android:textSize="12dp"/>
-
-        <EditText
-            android:id="@+id/edit_text_number_phone"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:layout_marginTop="10dp"
-            android:gravity="center"
-            android:background="@drawable/custonbordertextview"
-            android:hint="Número de teléfono"
-            android:inputType="number"
-            android:textSize="15dp"
-            android:textColor="@color/colorPrimary"/>
-
-        <TextView
-            android:id="@+id/text_view_msj_wait"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="En un momento recibiras el codigo de confirmación..."
-            android:visibility="invisible"
-            android:gravity="center"
-            android:layout_marginTop="10dp"
-            android:padding="10dp"
-            android:textStyle="italic"/>
-
-        <EditText
-            android:id="@+id/edit_text_code"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:layout_marginTop="10dp"
-            android:gravity="center"
-            android:visibility="invisible"
-            android:background="@drawable/custonbordertextviewconfirm"
-            android:hint="Ingresa el código"
-            android:textSize="15dp"
-            android:textColorHint="@color/colorWhite"
-            android:textColor="@color/colorWhite"/>
-    </LinearLayout>
-
-
-    <com.dd.processbutton.iml.ActionProcessButton
-        android:id="@+id/btnAction"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Enviar"
-        android:layout_margin="20dp"
-        android:textColor="@android:color/white"
-        android:textSize="18sp"
         android:layout_alignParentBottom="true"
-        custom:pb_colorComplete="@color/colorPrimary"
-        custom:pb_colorNormal="@color/blue_normal"
-        custom:pb_colorPressed="@color/blue_pressed"
-        custom:pb_colorProgress="@color/colorLetters"
-        custom:pb_textComplete="Enviado"
-        custom:pb_textProgress="Espere un momento" />
+        android:paddingLeft="20dp"
+        android:paddingRight="20dp"
+        android:paddingBottom="10dp"
+        android:paddingTop="10dp"
+        android:background="@color/colorWhite">
+        <com.dd.processbutton.iml.ActionProcessButton
+            android:id="@+id/btnAction"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Enviar"
+            android:textColor="@android:color/white"
+            android:textSize="18sp"
+            custom:pb_colorComplete="@color/colorPrimary"
+            custom:pb_colorNormal="@color/blue_normal"
+            custom:pb_colorPressed="@color/blue_pressed"
+            custom:pb_colorProgress="@color/colorLetters"
+            custom:pb_textComplete="Enviado"
+            custom:pb_textProgress="Espere un momento" />
+    </LinearLayout>
+
 
 </RelativeLayout>

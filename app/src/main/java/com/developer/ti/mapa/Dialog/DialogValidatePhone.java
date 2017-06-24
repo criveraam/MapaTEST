@@ -7,6 +7,8 @@ import android.support.design.widget.Snackbar;
 import android.support.v4.app.DialogFragment;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentTransaction;
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.util.Log;
 import android.view.Gravity;
 import android.view.LayoutInflater;
@@ -16,6 +18,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.dd.processbutton.iml.ActionProcessButton;
@@ -40,9 +43,10 @@ public class DialogValidatePhone extends DialogFragment implements View.OnClickL
     private EditText _etNumberPhone, _etCode;
     private TextView _tvMsjWait;
     private final SubmitProcessButton submitProcessButton = null;
-    private int btnSend = 0;
+    private int btnSend = 0, clickCampaning = 0;
     final ProgressGenerator progressGenerator = new ProgressGenerator(this);
     public static final String EXTRAS_ENDLESS_MODE = "EXTRAS_ENDLESS_MODE";
+    private LinearLayout _ll01, _ll02, _ll03, _ll04, _ll05;
 
     private ActionProcessButton mBtnAction;
 
@@ -81,9 +85,6 @@ public class DialogValidatePhone extends DialogFragment implements View.OnClickL
         super.onViewCreated(view, savedInstanceState);
         rootView = view;
         init();
-
-        final ProgressGenerator progressGenerator = new ProgressGenerator(this);
-
         mArguments();
     }
 
@@ -133,11 +134,20 @@ public class DialogValidatePhone extends DialogFragment implements View.OnClickL
 
     private void init(){
         _ivClose = (ImageView) rootView.findViewById(R.id.image_view_close);
-        _tvMsjWait = (TextView) rootView.findViewById(R.id.text_view_msj_wait);
         _etNumberPhone = (EditText) rootView.findViewById(R.id.edit_text_number_phone);
-        _etCode = (EditText) rootView.findViewById(R.id.edit_text_code);
-        // get the button view
+        _ll01 = (LinearLayout) rootView.findViewById(R.id.linear_layout_01);
+        _ll02 = (LinearLayout) rootView.findViewById(R.id.linear_layout_02);
+        _ll03 = (LinearLayout) rootView.findViewById(R.id.linear_layout_03);
+        _ll04 = (LinearLayout) rootView.findViewById(R.id.linear_layout_04);
+        _ll05 = (LinearLayout) rootView.findViewById(R.id.linear_layout_05);
 
+        selectCampaning1(_ll01);
+        selectCampaning2(_ll02);
+        selectCampaning3(_ll03);
+        selectCampaning4(_ll04);
+        selectCampaning5(_ll05);
+
+        // get the button view
         /*final ProgressGenerator progressGenerator = new ProgressGenerator(this);
         final ActionProcessButton btnSignIn = (ActionProcessButton) rootView.findViewById(R.id.btnSignIn);
         Bundle extras = getActivity().getIntent().getExtras();
@@ -161,11 +171,36 @@ public class DialogValidatePhone extends DialogFragment implements View.OnClickL
             @Override
             public void onClick(View v) {
                 //mBtnAction.setProgress(50);
+
+
                 int msj = validateNumberPhone();
                 notificationMsj(msj);
             }
         });
         _ivClose.setOnClickListener(this);
+
+        _etNumberPhone.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+
+            }
+
+            @Override
+            public void afterTextChanged(Editable s) {
+
+                Log.e(TAG, ">>> " + s);
+
+                if (s.length() == 2 ) {
+                    s.append('-');
+                }
+
+            }
+        });
     }
 
     private void sendNumberPhone(){
@@ -185,7 +220,10 @@ public class DialogValidatePhone extends DialogFragment implements View.OnClickL
     private int validateNumberPhone(){
         int typeIdMsj = 0;
         String numberPhone = _etNumberPhone.getText().toString();
+
         if(numberPhone.isEmpty()){
+            typeIdMsj = 0;
+        }else if(numberPhone.length() < 10){
             typeIdMsj = 1;
         }else{
             typeIdMsj = 2;
@@ -193,15 +231,56 @@ public class DialogValidatePhone extends DialogFragment implements View.OnClickL
         return typeIdMsj;
     }
 
+    private boolean selectCampaning(){
+        boolean b = false;
+        if(clickCampaning == 1){
+            b = true;
+        }else{
+            b = false;
+        }
+        return b;
+    }
+
     private void notificationMsj(int val){
-        if(val == 1){
+
+        if(selectCampaning() == false && val == 0){
+            Snackbar snackbar = Snackbar.make(rootView, "Selecciona tu compañia e ingresa un teléfono", Snackbar.LENGTH_LONG);
+            View view = snackbar.getView();
+            FrameLayout.LayoutParams params =(FrameLayout.LayoutParams)view.getLayoutParams();
+            params.gravity = Gravity.TOP;
+            view.setLayoutParams(params);
+            snackbar.show();
+            ColoredSnackBar.warning(snackbar);
+        }
+
+        if(selectCampaning() == false && val == 1){
+            Snackbar snackbar = Snackbar.make(rootView, "Selecciona tu compañia y tu número teléfono no es valido", Snackbar.LENGTH_LONG);
+            View view = snackbar.getView();
+            FrameLayout.LayoutParams params =(FrameLayout.LayoutParams)view.getLayoutParams();
+            params.gravity = Gravity.TOP;
+            view.setLayoutParams(params);
+            snackbar.show();
+            ColoredSnackBar.warning(snackbar);
+        }
+
+        if(val == 0){
             Snackbar snackbar = Snackbar.make(rootView, "No haz agregado un número", Snackbar.LENGTH_LONG);
             View view = snackbar.getView();
             FrameLayout.LayoutParams params =(FrameLayout.LayoutParams)view.getLayoutParams();
             params.gravity = Gravity.TOP;
             view.setLayoutParams(params);
             snackbar.show();
-            ColoredSnackBar.error(snackbar);
+            ColoredSnackBar.warning(snackbar);
+        }
+
+        if(val == 1){
+            Snackbar snackbar = Snackbar.make(rootView, "El número de teléfono no está completo", Snackbar.LENGTH_LONG);
+            View view = snackbar.getView();
+            FrameLayout.LayoutParams params =(FrameLayout.LayoutParams)view.getLayoutParams();
+            params.gravity = Gravity.TOP;
+            view.setLayoutParams(params);
+            snackbar.show();
+            ColoredSnackBar.warning(snackbar);
         }
 
         if(val == 2){
@@ -230,5 +309,75 @@ public class DialogValidatePhone extends DialogFragment implements View.OnClickL
             timer.schedule(task, 3000);
         }
 
+    }
+
+    private void selectCampaning1(final LinearLayout linearLayout){
+        linearLayout.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                linearLayout.setBackgroundColor(getContext().getResources().getColor(R.color.colorPrimary));
+                clickCampaning = 1;
+                _ll02.setBackgroundColor(getContext().getResources().getColor(R.color.colorWhite));
+                _ll03.setBackgroundColor(getContext().getResources().getColor(R.color.colorWhite));
+                _ll04.setBackgroundColor(getContext().getResources().getColor(R.color.colorWhite));
+                _ll05.setBackgroundColor(getContext().getResources().getColor(R.color.colorWhite));
+            }
+        });
+    }
+
+    private void selectCampaning2(final LinearLayout linearLayout){
+        linearLayout.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                linearLayout.setBackgroundColor(getContext().getResources().getColor(R.color.colorPrimary));
+                clickCampaning = 1;
+                _ll01.setBackgroundColor(getContext().getResources().getColor(R.color.colorWhite));
+                _ll03.setBackgroundColor(getContext().getResources().getColor(R.color.colorWhite));
+                _ll04.setBackgroundColor(getContext().getResources().getColor(R.color.colorWhite));
+                _ll05.setBackgroundColor(getContext().getResources().getColor(R.color.colorWhite));
+            }
+        });
+    }
+
+    private void selectCampaning3(final LinearLayout linearLayout){
+        linearLayout.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                linearLayout.setBackgroundColor(getContext().getResources().getColor(R.color.colorPrimary));
+                clickCampaning = 1;
+                _ll01.setBackgroundColor(getContext().getResources().getColor(R.color.colorWhite));
+                _ll02.setBackgroundColor(getContext().getResources().getColor(R.color.colorWhite));
+                _ll04.setBackgroundColor(getContext().getResources().getColor(R.color.colorWhite));
+                _ll05.setBackgroundColor(getContext().getResources().getColor(R.color.colorWhite));
+            }
+        });
+    }
+
+    private void selectCampaning4(final LinearLayout linearLayout){
+        linearLayout.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                linearLayout.setBackgroundColor(getContext().getResources().getColor(R.color.colorPrimary));
+                clickCampaning = 1;
+                _ll01.setBackgroundColor(getContext().getResources().getColor(R.color.colorWhite));
+                _ll02.setBackgroundColor(getContext().getResources().getColor(R.color.colorWhite));
+                _ll03.setBackgroundColor(getContext().getResources().getColor(R.color.colorWhite));
+                _ll05.setBackgroundColor(getContext().getResources().getColor(R.color.colorWhite));
+            }
+        });
+    }
+
+    private void selectCampaning5(final LinearLayout linearLayout){
+        linearLayout.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                linearLayout.setBackgroundColor(getContext().getResources().getColor(R.color.colorPrimary));
+                clickCampaning = 1;
+                _ll01.setBackgroundColor(getContext().getResources().getColor(R.color.colorWhite));
+                _ll02.setBackgroundColor(getContext().getResources().getColor(R.color.colorWhite));
+                _ll03.setBackgroundColor(getContext().getResources().getColor(R.color.colorWhite));
+                _ll04.setBackgroundColor(getContext().getResources().getColor(R.color.colorWhite));
+            }
+        });
     }
 }

@@ -1,6 +1,7 @@
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:custom="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
@@ -10,6 +11,7 @@
     <RelativeLayout
         android:id="@+id/relative_layout_content_toolbar"
         android:layout_width="match_parent"
+        android:layout_alignParentTop="true"
         android:layout_height="57dp"
         android:background="@color/colorPrimary"
         android:gravity="center_vertical"
@@ -30,4 +32,85 @@
             android:layout_centerHorizontal="true" />
     </RelativeLayout>
 
-</LinearLayout>
+    <LinearLayout
+        android:id="@+id/linear_layout_content_icons"
+        android:layout_below="@+id/relative_layout_content_toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:padding="20dp"
+        android:gravity="center_horizontal">
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="10dp"
+            app:srcCompat="@drawable/ic_textsms"/>
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="10dp"
+            android:layout_marginLeft="-60dp"
+            android:layout_marginTop="-10dp"
+            app:srcCompat="@drawable/ic_check_circle_color"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/linear_layout_content_icons"
+        android:orientation="vertical"
+        android:layout_margin="20dp">
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Código de confirmación"
+            android:gravity="center"
+            android:textStyle="bold"
+            android:textSize="24dp"/>
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:layout_marginTop="10dp"
+            android:text="Ingresa tu código de confirmación para poder autentificar tu número telefonico"
+            android:textSize="12dp"/>
+        <EditText
+            android:id="@+id/edit_text_code"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:layout_marginTop="10dp"
+            android:gravity="center"
+            android:maxLength="5"
+            android:background="@drawable/custonbordertextview"
+            android:hint="Codigo de confirmacion"
+            android:inputType="number"
+            android:textSize="15dp"
+            android:textColor="@color/colorPrimary"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:paddingLeft="20dp"
+        android:paddingRight="20dp"
+        android:paddingBottom="10dp"
+        android:paddingTop="10dp"
+        android:background="@color/colorWhite">
+        <com.dd.processbutton.iml.ActionProcessButton
+            android:id="@+id/btnAction1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Enviar"
+            android:textColor="@android:color/white"
+            android:textSize="18sp"
+            custom:pb_colorComplete="@color/colorPrimary"
+            custom:pb_colorNormal="@color/blue_normal"
+            custom:pb_colorPressed="@color/blue_pressed"
+            custom:pb_colorProgress="@color/colorLetters"
+            custom:pb_textComplete="Enviado"
+            custom:pb_textProgress="Espere un momento" />
+    </LinearLayout>
+
+</RelativeLayout>

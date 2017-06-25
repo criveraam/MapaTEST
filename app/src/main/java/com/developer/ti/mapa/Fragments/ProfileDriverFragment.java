@@ -52,8 +52,8 @@ public class ProfileDriverFragment extends Fragment {
 
         mTabHost = (FragmentTabHost)view.findViewById(R.id.tabhost);
         mTabHost.setup(getActivity(), getChildFragmentManager(), android.R.id.tabcontent);
-        mTabHost.addTab(mTabHost.newTabSpec("productividad").setIndicator("Entrada"), ProfileInformationDriverFragment.class, null);
-        mTabHost.addTab(mTabHost.newTabSpec("Entrada").setIndicator("Comida Salida"), ProfileOptionsDriverFragment.class, null);
+        mTabHost.addTab(mTabHost.newTabSpec("productividad").setIndicator("Perfil"), ProfileInformationDriverFragment.class, null);
+        mTabHost.addTab(mTabHost.newTabSpec("Entrada").setIndicator("Opciones"), ProfileOptionsDriverFragment.class, null);
 
     }
 

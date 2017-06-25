@@ -1,6 +1,7 @@
 package com.developer.ti.mapa.Fragments;
 
 import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
@@ -10,7 +11,6 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
@@ -20,6 +20,9 @@ import com.developer.ti.mapa.Dialog.DialogPicture;
 import com.developer.ti.mapa.Dialog.DialogProfileAutobiography;
 import com.developer.ti.mapa.Dialog.DialogValidatePhone;
 import com.developer.ti.mapa.R;
+
+import com.flipboard.bottomsheet.BottomSheetLayout;
+import com.flipboard.bottomsheet.commons.IntentPickerSheetView;
 
 public class ProfileInformationDriverFragment extends Fragment implements View.OnClickListener{
     private static final String ARG_PARAM1 = "param1";
@@ -31,6 +34,8 @@ public class ProfileInformationDriverFragment extends Fragment implements View.O
     private LinearLayout _llAutobiography;
     private TextView _tvIneIfe, _tvValidateNumberPhone;
     private FragmentTransaction ft;
+
+    BottomSheetLayout bottomSheetLayout;
 
     public ProfileInformationDriverFragment() {
         // Required empty public constructor
@@ -124,8 +129,6 @@ public class ProfileInformationDriverFragment extends Fragment implements View.O
         _llAutobiography = (LinearLayout) rootView.findViewById(R.id.linear_layout_autobiography);
         _tvIneIfe = (TextView) rootView.findViewById(R.id.text_view_ine_ife);
         _tvValidateNumberPhone = (TextView) rootView.findViewById(R.id.text_view_validate_number_phone);
-
-
 
         _ivPicture.setOnClickListener(this);
         _llAutobiography.setOnClickListener(this);

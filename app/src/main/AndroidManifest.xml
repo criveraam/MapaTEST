@@ -4,11 +4,14 @@
 
     <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
-    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.CAMERA" />
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
-    <uses-feature android:name="android.hardware.camera" android:required="false" />
+
+    <uses-feature
+        android:name="android.hardware.camera"
+        android:required="false" />
 
     <application
         android:allowBackup="true"
@@ -18,29 +21,33 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         android:windowSoftInputMode="adjustResize">
+        <service
+            android:name=".Helper.OnClearFromRecentService"
+            android:stopWithTask="false"></service>
 
-        <service android:name=".Helper.OnClearFromRecentService" android:stopWithTask="false">
-        </service>
         <meta-data
             android:name="com.google.android.gms.version"
             android:value="@integer/google_play_services_version" />
-        <meta-data android:name="com.google.android.gms.version.DEPENDENCIES"
-            android:value="ocr"/>
+        <meta-data
+            android:name="com.google.android.gms.version.DEPENDENCIES"
+            android:value="ocr" />
+        <meta-data
+            android:name="com.google.android.geo.API_KEY"
+            android:value="@string/API_KEY" />
 
-
-        <meta-data android:name="com.google.android.geo.API_KEY" android:value="@string/API_KEY"/>
         <activity
             android:name=".Activities.FullscreenActivity"
             android:configChanges="orientation|keyboardHidden|screenSize">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
         <activity
             android:name=".Activities.MainActivity"
-            android:theme="@style/AppThemeToolbar">
-        </activity>
+            android:theme="@style/AppThemeToolbar"></activity>
+        <activity android:name=".Activities.TestActivity"></activity>
     </application>
 
 </manifest>

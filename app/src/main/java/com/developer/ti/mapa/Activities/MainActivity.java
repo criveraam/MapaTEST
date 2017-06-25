@@ -18,6 +18,7 @@ import com.developer.ti.mapa.Fragments.DriverDestinationFragment;
 import com.developer.ti.mapa.Fragments.DriverOriginFragment;
 import com.developer.ti.mapa.Fragments.HomeFragment;
 import com.developer.ti.mapa.Fragments.ProfileDriverFragment;
+import com.developer.ti.mapa.Fragments.TestFragment;
 import com.developer.ti.mapa.Helper.MySharePreferences;
 import com.developer.ti.mapa.Helper.OnClearFromRecentService;
 import com.developer.ti.mapa.R;
@@ -43,6 +44,7 @@ public class MainActivity extends AppCompatActivity {
                 case R.id.navigation_ride:
                     return true;
                 case R.id.navigation_list:
+                    selectFragment(item);
                     return true;
                 case R.id.navigation_dashboard:
                     selectFragment(item);
@@ -75,10 +77,16 @@ public class MainActivity extends AppCompatActivity {
             case R.id.navigation_dashboard:
                 fragmentoGenerico = new ProfileDriverFragment();
                 break;
+            case R.id.navigation_list:
+                startActivity(new Intent(MainActivity.this, TestActivity.class));
+                break;
         }
+
+        if(fragmentoGenerico != null){
             FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
             transaction.setCustomAnimations(R.anim.fadein, R.anim.fadeout, R.anim.enter_from_right, R.anim.exit_to_left);
             transaction.replace(R.id.content, fragmentoGenerico);
             transaction.commit();
+        }
     }
 }

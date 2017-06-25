@@ -200,14 +200,6 @@ public class ConfirmRouteFragment extends Fragment implements View.OnClickListen
         imageView6 = (ImageView) dialog.findViewById(R.id.image_view_6);
         imageView7 = (ImageView) dialog.findViewById(R.id.image_view_7);
 
-        getDay(switch1, imageView1, context);
-        getDay(switch2, imageView2, context);
-        getDay(switch3, imageView3, context);
-        getDay(switch4, imageView4, context);
-        getDay(switch5, imageView5, context);
-        getDay(switch6, imageView6, context);
-        getDay(switch7, imageView7, context);
-
         buttonConfirm.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -234,16 +226,5 @@ public class ConfirmRouteFragment extends Fragment implements View.OnClickListen
         dialog.show();
     }
 
-    public static void getDay(Switch switcha, final ImageView imageView, final Context context){
-        switcha.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
-            @Override
-            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-                if(isChecked == false){
-                    imageView.setImageDrawable(context.getResources().getDrawable(R.drawable.ic_cancel));
-                }else{
-                    imageView.setImageDrawable(context.getResources().getDrawable(R.drawable.ic_check_circle));
-                }
-            }
-        });
-    }
+
 }

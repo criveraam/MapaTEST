@@ -1,0 +1,39 @@
+<com.flipboard.bottomsheet.BottomSheetLayout
+    android:id="@+id/bottomsheet"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <LinearLayout
+        android:id="@+id/root"
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <Button
+            android:id="@+id/btn_custom_view"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Preferencias"
+            android:onClick="onClick"
+            android:layout_margin="10dp"
+            android:background="@drawable/custombutton"
+            android:textAppearance="@style/Widget.Design.AppBarLayout"
+            android:textColor="@android:color/white"
+            android:textSize="17dp"/>
+
+        <Button
+            android:id="@+id/btn_intent"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Abrir accesos"
+            android:onClick="onClick"
+            android:layout_margin="10dp"
+            android:background="@drawable/custombutton"
+            android:textAppearance="@style/Widget.Design.AppBarLayout"
+            android:textColor="@android:color/white"
+            android:textSize="17dp"/>
+
+    </LinearLayout>
+
+</com.flipboard.bottomsheet.BottomSheetLayout>

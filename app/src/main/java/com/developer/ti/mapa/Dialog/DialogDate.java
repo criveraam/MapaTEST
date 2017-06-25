@@ -37,17 +37,6 @@ public class DialogDate {
 
         btnConfirm = (Button) dialog.findViewById(R.id.button_dialog_confirm);
 
-        materialCalendarView.setOnDateChangedListener(new OnDateSelectedListener() {
-            @Override
-            public void onDateSelected(@NonNull MaterialCalendarView widget, @NonNull CalendarDay date, boolean selected) {
-                int day = date.getDay();
-                int month = date.getMonth();
-                int year = date.getYear();
-                Log.e(TAG, "-->" + FORMATTER.format(date.getDate()));
-                sDate = day + "-" + month + "-" + year;
-                textViewDate.setText(sDate);
-            }
-        });
 
         btnConfirm.setOnClickListener(new View.OnClickListener() {
             @Override

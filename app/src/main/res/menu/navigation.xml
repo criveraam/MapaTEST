@@ -9,7 +9,7 @@
     <item
         android:id="@+id/navigation_running"
         android:icon="@drawable/ic_directions_car"
-        android:title="Conductor" />
+        android:title="Nuevo Aventon" />
 
     <item
         android:id="@+id/navigation_ride"
@@ -18,12 +18,12 @@
 
     <item
         android:id="@+id/navigation_list"
-        android:icon="@drawable/ic_view_list"
-        android:title="Viajes" />
+        android:icon="@drawable/ic_menu"
+        android:title="Menu" />
 
-    <item
+    <!--item
         android:id="@+id/navigation_dashboard"
         android:icon="@drawable/ic_dashboard"
-        android:title="Más" />
+        android:title="Más" /-->
 
 </menu>

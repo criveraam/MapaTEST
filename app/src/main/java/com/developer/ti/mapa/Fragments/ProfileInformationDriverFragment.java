@@ -85,6 +85,18 @@ public class ProfileInformationDriverFragment extends Fragment implements View.O
     }
 
     @Override
+    public void onResume() {
+        super.onResume();
+        ((AppCompatActivity) getActivity()).getSupportActionBar().hide();
+    }
+
+    @Override
+    public void onStop() {
+        super.onStop();
+        ((AppCompatActivity)getActivity()).getSupportActionBar().show();
+    }
+
+    @Override
     public void onClick(View v) {
         ft = getFragmentManager().beginTransaction();
         switch (v.getId()){

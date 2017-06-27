@@ -14,6 +14,13 @@
     <string name="destiny_update">Actualizando destino...</string>
 
     <string name="API_KEY">AIzaSyD8o0iwFnrvvtVNp8jJtlX2yxEkPbKF64s</string>
+    <string name="API_KEY_JOB">AIzaSyDjKCa4UdNi36jf8gO0FyEw-N5wDn_hLK4</string>
     <string name="texto_perfil">Edita tu perfil y añade una minibiografia</string>
     <string name="texto_editar_perfil">Los usuarios ncon un perfil completo tienen más probabilidad de encontrar compañeros de viaje</string>
+    <string name="title_activity_container">ContainerActivity</string>
+
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+
+    <string name="action_settings">Settings</string>
 </resources>

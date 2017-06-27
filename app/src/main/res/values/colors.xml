@@ -1,9 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="colorPrimary">#00e094</color>
-    <color name="colorPrimary_dark">#00E094</color>
-    <color name="colorPrimary_light">#B2EBF2</color>
-    <color name="colorAccent">#009688</color>
+
+    <color name="colorPrimary">#5FAECA</color>
+    <color name="colorPrimary_dark">#468297</color>
+    <color name="colorPrimary_light">#DFE2E5</color>
+    <color name="colorAccent">#5FAECA</color>
     <color name="colorPrimary_text">#212121</color>
     <color name="colorSecondary_text">#757575</color>
     <color name="colorLetters">#e64c3d</color>
@@ -13,9 +14,14 @@
 
     <color name="black_overlay">#66000000</color>
     <color name="colorGrey">#C1c1c1</color>
-    <color name="colorWhite">#FFFFFF</color>
     <color name="colorGreyPrimary">#F6F6F6</color>
 
     <color name="colorRed">#d64e50</color>
 
+    <!-- TODO: Color para fondo de splash -->
+    <color name="colorWallPaper">#F0F3F6</color>
+    <!-- TODO: Color letra -->
+    <color name="colorWordFocus">#5FAECA</color>
+    <!-- TODO: Color White -->
+    <color name="colorWhite">#FFFFFF</color>
 </resources>

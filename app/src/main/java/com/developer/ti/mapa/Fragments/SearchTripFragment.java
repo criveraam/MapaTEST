@@ -1,32 +1,28 @@
 package com.developer.ti.mapa.Fragments;
 
-import android.content.Context;
+
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
-import android.support.v7.app.ActionBar;
-import android.support.v7.app.AppCompatActivity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ImageView;
-import android.widget.TextView;
 
 import com.developer.ti.mapa.R;
 
-public class HomeFragment extends Fragment implements View.OnClickListener{
+public class SearchTripFragment extends Fragment {
     private static final String ARG_PARAM1 = "param1";
     private static final String ARG_PARAM2 = "param2";
     private String mParam1;
     private String mParam2;
     private View rootView;
 
-    public HomeFragment() {
+    public SearchTripFragment() {
         // Required empty public constructor
     }
 
-    public static HomeFragment newInstance(String param1, String param2) {
-        HomeFragment fragment = new HomeFragment();
+    public static SearchTripFragment newInstance(String param1, String param2) {
+        SearchTripFragment fragment = new SearchTripFragment();
         Bundle args = new Bundle();
         args.putString(ARG_PARAM1, param1);
         args.putString(ARG_PARAM2, param2);
@@ -47,37 +43,11 @@ public class HomeFragment extends Fragment implements View.OnClickListener{
     public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
         rootView = view;
-
-        setToolbarTitle();
     }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        return inflater.inflate(R.layout.fragment_home, container, false);
-    }
-
-    @Override
-    public void onAttach(Context context) {
-        super.onAttach(context);
-    }
-
-    @Override
-    public void onDetach() {
-        super.onDetach();
-    }
-
-    @Override
-    public void onClick(View v) {
-
-    }
-
-    private void setToolbarTitle(){
-        TextView _titleTop;
-        ActionBar actionBar = ((AppCompatActivity)getActivity()).getSupportActionBar();
-        actionBar.setDisplayOptions(ActionBar.DISPLAY_SHOW_CUSTOM);
-        actionBar.setCustomView(R.layout.top_title_center);
-        _titleTop = (TextView) actionBar.getCustomView().findViewById(R.id.text_view_title);
-        _titleTop.setText("Inicio");
+        return inflater.inflate(R.layout.fragment_search_trip, container, false);
     }
 
 }

@@ -5,8 +5,8 @@
         <item name="colorPrimary">@color/colorPrimary</item>
         <item name="colorPrimaryDark">@color/colorPrimary_dark</item>
         <item name="colorAccent">@color/colorPrimary</item>
-        <!--item name="windowActionBar">false</item-->
-        <!--item name="windowNoTitle">true</item-->
+        <!--Item name="windowActionBar">false</Item-->
+        <!--Item name="windowNoTitle">true</Item-->
     </style>
 
     <!-- Base application theme. -->

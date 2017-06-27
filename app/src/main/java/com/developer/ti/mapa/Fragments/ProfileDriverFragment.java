@@ -6,13 +6,18 @@ import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentTabHost;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.developer.ti.mapa.Adapter.AdapterItem;
+import com.developer.ti.mapa.Model.Item;
 import com.developer.ti.mapa.R;
+
+import java.util.List;
 
 public class ProfileDriverFragment extends Fragment {
     private static final String ARG_PARAM1 = "param1";

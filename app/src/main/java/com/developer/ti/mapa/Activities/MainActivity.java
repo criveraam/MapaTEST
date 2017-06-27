@@ -36,14 +36,14 @@ public class MainActivity extends AppCompatActivity {
                     selectFragment(item);
                     return true;
                 case R.id.navigation_ride:
-                    //selectFragment(item);
+                    //selectFragment(Item);
                     //startActivity(new Intent(MainActivity.this, ContainerActivity.class));
                     return true;
                 case R.id.navigation_list:
                     selectFragment(item);
                     return true;
                 /*case R.id.navigation_dashboard:
-                    selectFragment(item);
+                    selectFragment(Item);
                     return true;*/
 
                 /*
@@ -101,11 +101,11 @@ public class MainActivity extends AppCompatActivity {
     }
 
     @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        // Handle action bar item clicks here. The action bar will
+    public boolean onOptionsItemSelected(MenuItem Item) {
+        // Handle action bar Item clicks here. The action bar will
         // automatically handle clicks on the Home/Up button, so long
         // as you specify a parent activity in AndroidManifest.xml.
-        int id = item.getItemId();
+        int id = Item.getItemId();
 
         //noinspection SimplifiableIfStatement
         if (id == R.id.nav_profile) {
@@ -114,11 +114,11 @@ public class MainActivity extends AppCompatActivity {
         }
 
         if(id == R.id.nav_setting){
-            selectFragment(item);
+            selectFragment(Item);
             return true;
         }
 
-        return super.onOptionsItemSelected(item);
+        return super.onOptionsItemSelected(Item);
     }*/
 
 

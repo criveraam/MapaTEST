@@ -3,37 +3,30 @@ package com.developer.ti.mapa.Fragments;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentTabHost;
-import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
-import com.developer.ti.mapa.Adapter.AdapterItem;
-import com.developer.ti.mapa.Model.Item;
+import com.developer.ti.mapa.Activities.MainActivity;
 import com.developer.ti.mapa.R;
 
-import java.util.List;
-
-public class ProfileDriverFragment extends Fragment {
+public class OptionTripFragment extends Fragment implements View.OnClickListener{
     private static final String ARG_PARAM1 = "param1";
     private static final String ARG_PARAM2 = "param2";
     private String mParam1;
     private String mParam2;
     private View rootView;
-    private FragmentTabHost mTabHost;
+    private LinearLayout ll1, ll2;
 
-
-    public ProfileDriverFragment() {
+    public OptionTripFragment() {
         // Required empty public constructor
     }
 
-    public static ProfileDriverFragment newInstance(String param1, String param2) {
-        ProfileDriverFragment fragment = new ProfileDriverFragment();
+    public static OptionTripFragment newInstance(String param1, String param2) {
+        OptionTripFragment fragment = new OptionTripFragment();
         Bundle args = new Bundle();
         args.putString(ARG_PARAM1, param1);
         args.putString(ARG_PARAM2, param2);
@@ -53,33 +46,39 @@ public class ProfileDriverFragment extends Fragment {
     @Override
     public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
+        init(view);
+    }
+
+    private void init(View view) {
         rootView = view;
 
-        mTabHost = (FragmentTabHost)view.findViewById(R.id.tabhost);
-        mTabHost.setup(getActivity(), getChildFragmentManager(), android.R.id.tabcontent);
-        mTabHost.addTab(mTabHost.newTabSpec("Perfil").setIndicator("Perfil"), ProfileInformationDriverFragment.class, null);
-        mTabHost.addTab(mTabHost.newTabSpec("Opciones").setIndicator("Opciones"), ProfileOptionsDriverFragment.class, null);
+        ll1 = (LinearLayout) rootView.findViewById(R.id.ll1);
+        ll2 = (LinearLayout) rootView.findViewById(R.id.ll2);
 
+        ll1.setOnClickListener(this);
+        ll2.setOnClickListener(this);
     }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        return inflater.inflate(R.layout.fragment_profile_driver, container, false);
+        return inflater.inflate(R.layout.fragment_option_trip, container, false);
     }
 
     @Override
     public void onResume() {
         super.onResume();
-         ((AppCompatActivity)getActivity()).getSupportActionBar().hide();
+        ((AppCompatActivity) getActivity()).getSupportActionBar().setTitle("ddd");
     }
 
     @Override
-    public void onStop() {
-        super.onStop();
-        ((AppCompatActivity)getActivity()).getSupportActionBar().show();
+    public void onClick(View v) {
+        switch (v.getId()){
+            case R.id.ll1:
+                Search1Fragment f = new Search1Fragment();
+                getFragmentManager()
+                        .beginTransaction().setCustomAnimations(R.anim.enter_from_right, R.anim.exit_to_left, R.anim.enter_from_left, R.anim.exit_to_right)
+                        .replace(R.id.content, f).commit();
+                break;
+        }
     }
-
-
-
-
 }

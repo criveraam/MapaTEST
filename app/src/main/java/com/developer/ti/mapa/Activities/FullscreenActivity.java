@@ -30,7 +30,7 @@ public class FullscreenActivity extends AppCompatActivity {
         boolean redirect = mySharePreferences.getInit();
 
         if(redirect == true){
-            Intent mainIntent = new Intent().setClass(FullscreenActivity.this, MainActivity.class);
+            Intent mainIntent = new Intent().setClass(FullscreenActivity.this, WelcomeActivity.class);
             startActivity(mainIntent);
             finish();
         }else {
@@ -40,7 +40,7 @@ public class FullscreenActivity extends AppCompatActivity {
                 public void run() {
                     // Comenzara la siguiente Actividad
                     mySharePreferences.setInit(true);
-                    Intent mainIntent = new Intent().setClass(FullscreenActivity.this, MainActivity.class);
+                    Intent mainIntent = new Intent().setClass(FullscreenActivity.this, WelcomeActivity.class);
                     startActivity(mainIntent);
                     // Cierra la actividad para que el usuario no pueda volver atrás
                     // Actividad pulsando el botón Atrás

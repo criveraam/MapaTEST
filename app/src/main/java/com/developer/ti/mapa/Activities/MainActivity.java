@@ -7,12 +7,14 @@ import android.support.design.widget.BottomNavigationView;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.view.MenuItem;
 import android.widget.TextView;
 
 import com.developer.ti.mapa.Fragments.DriverOriginFragment;
 import com.developer.ti.mapa.Fragments.HomeFragment;
 import com.developer.ti.mapa.Fragments.MenuFragment;
+import com.developer.ti.mapa.Fragments.OptionTripFragment;
 import com.developer.ti.mapa.Fragments.ProfileDriverFragment;
 import com.developer.ti.mapa.Helper.OnClearFromRecentService;
 import com.developer.ti.mapa.R;
@@ -36,23 +38,11 @@ public class MainActivity extends AppCompatActivity {
                     selectFragment(item);
                     return true;
                 case R.id.navigation_ride:
-                    //selectFragment(Item);
-                    //startActivity(new Intent(MainActivity.this, ContainerActivity.class));
+                    selectFragment(item);
                     return true;
                 case R.id.navigation_list:
                     selectFragment(item);
                     return true;
-                /*case R.id.navigation_dashboard:
-                    selectFragment(Item);
-                    return true;*/
-
-                /*
-                tu sabes que soy un buen godinez, y que siempre lo seré,
-                que necesito aunmeto de sueldo para poder sobrevivir...
-
-                que me encanta que llegue quincena
-
-                 */
             }
             return false;
         }
@@ -79,10 +69,10 @@ public class MainActivity extends AppCompatActivity {
                 fragmentoGenerico = new DriverOriginFragment();
                 break;
             case R.id.navigation_ride:
-                //fragmentoGenerico = new ProfileDriverFragment();
+                fragmentoGenerico = new OptionTripFragment();
                 break;
             case R.id.navigation_list:
-                fragmentoGenerico = new MenuFragment();
+                fragmentoGenerico = new ProfileDriverFragment();
                 break;
         }
 
@@ -94,30 +84,36 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
+    @Override
+    protected void onResume() {
+        super.onResume();
+        setActionBarTitle(getString(R.string.app_name));
+    }
+
+    public void setActionBarTitle(String title){
+        getSupportActionBar().setTitle(title);
+    }
+
+
     /*@Override
     public boolean onCreateOptionsMenu(Menu menu) {
         getMenuInflater().inflate(R.menu.menu_top, menu);
         return true;
     }
-
     @Override
     public boolean onOptionsItemSelected(MenuItem Item) {
         // Handle action bar Item clicks here. The action bar will
         // automatically handle clicks on the Home/Up button, so long
         // as you specify a parent activity in AndroidManifest.xml.
         int id = Item.getItemId();
-
         //noinspection SimplifiableIfStatement
         if (id == R.id.nav_profile) {
-
             return true;
         }
-
         if(id == R.id.nav_setting){
             selectFragment(Item);
             return true;
         }
-
         return super.onOptionsItemSelected(Item);
     }*/
 

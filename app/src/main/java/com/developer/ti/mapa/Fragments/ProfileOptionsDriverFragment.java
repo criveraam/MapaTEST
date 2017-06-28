@@ -62,13 +62,43 @@ public class ProfileOptionsDriverFragment extends Fragment {
 
         recyclerView = (RecyclerView) rootView.findViewById(R.id.recycler_view);
 
-        mAdapter = new TestAdapter(testList);
+        int img_src[] = {
+                R.drawable.ic_notifications_none,
+                R.drawable.ic_history,
+                R.drawable.ic_mode_comment,
+                R.drawable.ic_payments,
+                R.drawable.ic_supervisor,
+                R.drawable.ic_import_contacts,
+                R.drawable.ic_exit
+        };
+        String[] m = new String[]{
+                "Notificaciones",
+                "Historial de pago",
+                "Mensajes",
+                "Método de pago",
+                "Invita a tus amigos",
+                "Aviso de privacidad",
+                "Cerrar sesión",
+        };
+        int i=0;
+        for(String data:m) {
+            Test myData = new Test(img_src[i],m[i]);
+            testList.add(myData);
+            i++;
+        }
+        mAdapter =  new TestAdapter(testList);
+        recyclerView.setHasFixedSize(true);
+        RecyclerView.LayoutManager mLayoutmanayer = new LinearLayoutManager(getActivity().getApplicationContext());
+        recyclerView.setLayoutManager(mLayoutmanayer);
+        recyclerView.setItemAnimator(new DefaultItemAnimator());
+        recyclerView.setAdapter(mAdapter);
+
+        /*mAdapter = new TestAdapter(testList);
         RecyclerView.LayoutManager mLayoutManager = new LinearLayoutManager(getActivity().getApplicationContext());
         recyclerView.setLayoutManager(mLayoutManager);
         recyclerView.setItemAnimator(new DefaultItemAnimator());
         recyclerView.setAdapter(mAdapter);
-
-        prepareListData();
+        prepareListData();*/
     }
 
     @Override
@@ -89,21 +119,21 @@ public class ProfileOptionsDriverFragment extends Fragment {
     @Override
     public void onResume() {
         super.onResume();
-        ((AppCompatActivity) getActivity()).getSupportActionBar().hide();
+        //((AppCompatActivity) getActivity()).getSupportActionBar().hide();
     }
 
     @Override
     public void onStop() {
         super.onStop();
-        ((AppCompatActivity)getActivity()).getSupportActionBar().show();
+        //((AppCompatActivity)getActivity()).getSupportActionBar().show();
     }
 
     private void prepareListData(){
 
-        Integer[] drawableArray = {R.drawable.ic_account_box, R.drawable.ic_settings_applications, R.drawable.ic_account_circle, R.drawable.ic_add_circle};
+        int[] drawableArray = {R.drawable.ic_account_box, R.drawable.ic_settings_applications, R.drawable.ic_account_circle, R.drawable.ic_add_circle};
 
-        //Test test = new Test(drawableArray[0], "Mensajes");
-        //testList.add(test);
+        Test test = new Test(1, "Mensajes");
+        testList.add(test);
 
         mAdapter.notifyDataSetChanged();
     }

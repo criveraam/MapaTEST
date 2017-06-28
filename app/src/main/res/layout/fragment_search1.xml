@@ -1,0 +1,90 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@color/colorWhite"
+    tools:context="com.developer.ti.mapa.Fragments.Search1Fragment">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:padding="5dp">
+        <ImageView
+            android:id="@+id/image_view_icon"
+            android:layout_width="35dp"
+            android:layout_height="35dp"
+            android:padding="10dp"
+            app:srcCompat="@drawable/circulo" />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="12dp"
+                android:textColor="@color/colorPrimary"
+                android:text="Destino"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Destino mas cercano"/>
+        </LinearLayout>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:padding="5dp">
+        <TextView
+            android:layout_width="35dp"
+            android:layout_height="35dp"
+            android:padding="10dp" />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Lugares"/>
+
+        <TextView
+            android:id="@+id/text_view_places_car"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingLeft="5dp"
+            android:paddingRight="5dp"
+            android:text="1"/>
+        <Button
+            android:id="@+id/button_subtraction"
+            android:layout_width="50dp"
+            android:layout_height="35dp"
+            android:background="@drawable/custombuttonless"
+            android:textColor="@color/colorPrimary_dark"
+            android:textStyle="bold"
+            android:layout_marginBottom="4dp"
+            android:text="-"/>
+        <Button
+            android:id="@+id/button_sum"
+            android:layout_width="50dp"
+            android:layout_height="35dp"
+            android:background="@drawable/custombuttonless"
+            android:textColor="@color/colorPrimary_dark"
+            android:textStyle="bold"
+            android:layout_marginBottom="4dp"
+            android:text="+"/>
+    </LinearLayout>
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="35dp"
+        android:layout_margin="10dp"
+        android:background="@drawable/custombutton"
+        android:text="Buscar"
+        android:textAppearance="@style/Widget.Design.AppBarLayout"
+        android:textColor="@android:color/white"
+        android:textSize="17dp" />
+
+</LinearLayout>

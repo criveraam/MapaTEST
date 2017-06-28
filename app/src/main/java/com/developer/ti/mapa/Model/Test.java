@@ -12,6 +12,11 @@ public class Test {
     public Test() {
     }
 
+    public Test(int icon, String section){
+        this.icon = icon;
+        this.section = section;
+    }
+
     public int getIcon() {
         return icon;
     }

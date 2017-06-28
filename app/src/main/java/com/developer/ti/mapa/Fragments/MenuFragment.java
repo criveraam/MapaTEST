@@ -50,6 +50,7 @@ public class MenuFragment extends Fragment {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        setUserVisibleHint(false);
         if (getArguments() != null) {
             mParam1 = getArguments().getString(ARG_PARAM1);
             mParam2 = getArguments().getString(ARG_PARAM2);
@@ -78,13 +79,13 @@ public class MenuFragment extends Fragment {
     @Override
     public void onResume() {
         super.onResume();
-        ((AppCompatActivity)getActivity()).getSupportActionBar().hide();
+        //((AppCompatActivity)getActivity()).getSupportActionBar().hide();
     }
 
     @Override
     public void onStop() {
         super.onStop();
-        ((AppCompatActivity)getActivity()).getSupportActionBar().show();
+        //((AppCompatActivity)getActivity()).getSupportActionBar().show();
     }
 
     private void setupTabIcons() {
@@ -95,7 +96,7 @@ public class MenuFragment extends Fragment {
     private void setupViewPager(ViewPager viewPager) {
         ViewPagerAdapter adapter = new ViewPagerAdapter(getActivity().getSupportFragmentManager());
         adapter.addFrag(new ProfileInformationDriverFragment(), "Perfil");
-        adapter.addFrag(new ProfileOptionsDriverFragment(), "Configuración");
+        adapter.addFrag(new ProfileOptionsDriverFragment(), "Opciones");
         viewPager.setAdapter(adapter);
     }
 

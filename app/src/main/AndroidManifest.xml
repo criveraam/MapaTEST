@@ -37,7 +37,8 @@
 
         <activity
             android:name=".Activities.FullscreenActivity"
-            android:configChanges="orientation|keyboardHidden|screenSize">
+            android:configChanges="orientation|keyboardHidden|screenSize"
+            android:theme="@style/AppThemeToolbar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -46,12 +47,15 @@
         </activity>
         <activity
             android:name=".Activities.MainActivity"
-            android:theme="@style/AppThemeToolbar" />
+            android:theme="@style/AppTheme" />
         <activity android:name=".Activities.TestActivity" />
         <activity
             android:name=".Activities.ContainerActivity"
             android:label="@string/title_activity_container"
-            android:theme="@style/AppTheme"></activity>
+            android:theme="@style/AppTheme" />
+        <activity
+            android:name=".Activities.WelcomeActivity"
+            android:theme="@style/AppThemeToolbar"/>
     </application>
 
 </manifest>

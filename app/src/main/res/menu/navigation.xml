@@ -13,8 +13,8 @@
 
     <item
         android:id="@+id/navigation_ride"
-        android:icon="@drawable/ic_transfer_within_a_station"
-        android:title="Aventon" />
+        android:icon="@drawable/ic_search"
+        android:title="Buscar" />
 
     <item
         android:id="@+id/navigation_list"

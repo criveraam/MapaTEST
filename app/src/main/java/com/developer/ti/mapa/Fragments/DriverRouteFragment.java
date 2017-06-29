@@ -95,7 +95,7 @@ public class DriverRouteFragment extends Fragment implements OnMapReadyCallback,
 
         gps = new GPS(getContext());
         assigment();
-        setToolbarTitle();
+        // setToolbarTitle();
         getArgument();
         mMap();
         rqtDirection();

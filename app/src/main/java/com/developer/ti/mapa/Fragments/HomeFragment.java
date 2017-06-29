@@ -48,7 +48,7 @@ public class HomeFragment extends Fragment implements View.OnClickListener{
         super.onViewCreated(view, savedInstanceState);
         rootView = view;
 
-        setToolbarTitle();
+        //setToolbarTitle();
     }
 
     @Override

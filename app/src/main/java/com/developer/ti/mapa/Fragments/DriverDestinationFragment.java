@@ -123,7 +123,7 @@ public class DriverDestinationFragment extends Fragment implements OnMapReadyCal
             _tvOriginPlace.setText(getArguments().getString(ARG_PARAM2));
         }
 
-        setToolbarTitle();
+        //setToolbarTitle();
     }
 
     @Override

@@ -88,7 +88,7 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onResume() {
         super.onResume();
-        setActionBarTitle(getString(R.string.app_name));
+        //setActionBarTitle(getString(R.string.app_name));
     }
 
     public void setActionBarTitle(String title){

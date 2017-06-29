@@ -123,7 +123,7 @@ public class DriverOriginFragment extends Fragment implements OnMapReadyCallback
         _llSearchOrigin.setOnClickListener(this);
         _btnSearchDestination.setOnClickListener(this);
 
-        setToolbarTitle();
+        //setToolbarTitle();
 
     }
 
@@ -353,12 +353,12 @@ public class DriverOriginFragment extends Fragment implements OnMapReadyCallback
         TextView _titleTop;
         ImageView _arrowBack;
         ActionBar actionBar = ((AppCompatActivity)getActivity()).getSupportActionBar();
-        actionBar.setDisplayOptions(ActionBar.DISPLAY_SHOW_CUSTOM);
+        /*actionBar.setDisplayOptions(ActionBar.DISPLAY_SHOW_CUSTOM);
         actionBar.setCustomView(R.layout.top_title_center);
         _titleTop = (TextView) actionBar.getCustomView().findViewById(R.id.text_view_title);
         _arrowBack = (ImageView) actionBar.getCustomView().findViewById(R.id.image_view_back_navigation);
         _titleTop.setText("Crear ruta");
-        _arrowBack.setOnClickListener(this);
+        _arrowBack.setOnClickListener(this);*/
     }
 
 }

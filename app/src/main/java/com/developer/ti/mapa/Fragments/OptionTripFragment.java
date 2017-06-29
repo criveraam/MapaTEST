@@ -67,7 +67,7 @@ public class OptionTripFragment extends Fragment implements View.OnClickListener
     @Override
     public void onResume() {
         super.onResume();
-        ((AppCompatActivity) getActivity()).getSupportActionBar().setTitle("ddd");
+        //((AppCompatActivity) getActivity()).getSupportActionBar().setTitle("ddd");
     }
 
     @Override

@@ -47,7 +47,7 @@
         </activity>
         <activity
             android:name=".Activities.MainActivity"
-            android:theme="@style/AppTheme" />
+            android:theme="@style/AppThemeToolbar" />
         <activity android:name=".Activities.TestActivity" />
         <activity
             android:name=".Activities.ContainerActivity"

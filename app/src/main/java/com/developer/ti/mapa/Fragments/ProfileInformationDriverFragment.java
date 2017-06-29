@@ -64,7 +64,7 @@ public class ProfileInformationDriverFragment extends Fragment implements View.O
         super.onViewCreated(view, savedInstanceState);
 
         rootView = view;
-        setToolbarTitle();
+        //setToolbarTitle();
         init();
     }
 

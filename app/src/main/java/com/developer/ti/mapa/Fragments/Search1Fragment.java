@@ -3,18 +3,27 @@ package com.developer.ti.mapa.Fragments;
 
 import android.os.Bundle;
 import android.support.annotation.Nullable;
+import android.support.design.widget.AppBarLayout;
+import android.support.design.widget.CollapsingToolbarLayout;
+import android.support.design.widget.FloatingActionButton;
+import android.support.design.widget.Snackbar;
 import android.support.v4.app.Fragment;
 import android.support.v7.app.ActionBar;
+import android.support.v7.app.ActionBarActivity;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.Toolbar;
 import android.view.LayoutInflater;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.TextView;
-
+import com.developer.ti.mapa.Dialog.CustomBottomSheetDialogFragment;
 import com.developer.ti.mapa.R;
+import com.flipboard.bottomsheet.BottomSheetLayout;
 
-public class Search1Fragment extends Fragment {
+public class Search1Fragment extends Fragment implements View.OnClickListener{
     private static final String ARG_PARAM1 = "param1";
     private static final String ARG_PARAM2 = "param2";
     private String mParam1;
@@ -24,6 +33,8 @@ public class Search1Fragment extends Fragment {
     private TextView tvPlacesCar;
     private View rootView;
     private String val;
+    BottomSheetLayout bottomSheetLayout;
+    private Menu menu;
 
     public Search1Fragment() {
         // Required empty public constructor
@@ -50,11 +61,29 @@ public class Search1Fragment extends Fragment {
     @Override
     public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-        init(view);
-        setToolbarTitle();
 
+        final Toolbar toolbar = (Toolbar) getActivity().findViewById(R.id.MyToolbar);
+
+        //setSupportActionBar(toolbar);
+        //getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+
+        CollapsingToolbarLayout collapsingToolbar = (CollapsingToolbarLayout) view.findViewById(R.id.collapse_toolbar);
+        collapsingToolbar.setTitle("My Toolbar Tittle");
+
+        //init(view);
+        //setToolbarTitle();
         // TODO: Inclucion de lugares
-        places();
+        //places();
+    }
+
+    private void hideOption(int id) {
+        MenuItem item = menu.findItem(id);
+        item.setVisible(false);
+    }
+
+    private void showOption(int id) {
+        MenuItem item = menu.findItem(id);
+        item.setVisible(true);
     }
 
     @Override
@@ -65,9 +94,28 @@ public class Search1Fragment extends Fragment {
     private void init(View view){
         rootView = view;
 
-        btnSum = (Button) rootView.findViewById(R.id.button_sum);
-        btnSubtraction = (Button) rootView.findViewById(R.id.button_subtraction);
-        tvPlacesCar = (TextView) rootView.findViewById(R.id.text_view_places_car);
+        //btnSum = (Button) rootView.findViewById(R.id.button_sum);
+        //btnSubtraction = (Button) rootView.findViewById(R.id.button_subtraction);
+        //tvPlacesCar = (TextView) rootView.findViewById(R.id.text_view_places_car);
+
+
+        /*View showModalBottomSheet = rootView.findViewById(R.id.as_modal);
+        showModalBottomSheet.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                //Initializing a bottom sheet
+                CustomBottomSheetDialogFragment bottomSheetDialogFragment = new CustomBottomSheetDialogFragment();
+                //show it
+                bottomSheetDialogFragment.show(getActivity().getSupportFragmentManager(), bottomSheetDialogFragment.getTag());
+            }
+        });*/
+    }
+
+    @Override
+    public void onClick(View v) {
+        switch (v.getId()){
+
+        }
     }
 
     private void setToolbarTitle(){
@@ -79,6 +127,19 @@ public class Search1Fragment extends Fragment {
         _titleTop.setText("Buscar");
     }
 
+    @Override
+    public void onResume() {
+        super.onResume();
+        ((AppCompatActivity)getActivity()).getSupportActionBar().hide();
+    }
+
+    @Override
+    public void onStop() {
+        super.onStop();
+        ((AppCompatActivity)getActivity()).getSupportActionBar().show();
+    }
+
+    /*
     private void places(){
         btnSubtraction.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -109,4 +170,5 @@ public class Search1Fragment extends Fragment {
         });
     }
 
+    */
 }

@@ -59,6 +59,7 @@ public class MainActivity extends AppCompatActivity {
         selectFragment(_navigation.getMenu().getItem(0));
     }
 
+
     private void selectFragment(MenuItem item){
         Fragment fragmentoGenerico = null;
         switch (item.getItemId()){

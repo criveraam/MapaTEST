@@ -14,6 +14,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.developer.ti.mapa.Activities.MainActivity;
+import com.developer.ti.mapa.Activities.MenuTestActivity;
 import com.developer.ti.mapa.Activities.WelcomeActivity;
 import com.developer.ti.mapa.Fragments.DriverDestinationFragment;
 import com.developer.ti.mapa.R;

@@ -55,7 +55,8 @@
             android:theme="@style/AppTheme" />
         <activity
             android:name=".Activities.WelcomeActivity"
-            android:theme="@style/AppThemeToolbar"/>
+            android:theme="@style/AppThemeToolbar" />
+        <activity android:name=".Activities.MenuTestActivity"></activity>
     </application>
 
 </manifest>

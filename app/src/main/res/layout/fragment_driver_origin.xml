@@ -7,6 +7,14 @@
     android:orientation="vertical"
     tools:context="com.developer.ti.mapa.Fragments.DriverOriginFragment">
 
+    <RelativeLayout
+        android:id="@+id/top"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true">
+        <include layout="@layout/top"/>
+    </RelativeLayout>
+
     <fragment
         android:id="@+id/map_origin"
         android:name="com.google.android.gms.maps.SupportMapFragment"

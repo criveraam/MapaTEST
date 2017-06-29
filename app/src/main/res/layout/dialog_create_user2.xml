@@ -92,7 +92,7 @@
                     android:layout_height="wrap_content"
                     android:background="@drawable/custonbordertextviewbackground"
                     android:hint="Ingresa un email"
-                    android:inputType="textPassword"
+                    android:inputType="textEmailAddress"
                     android:textColor="@color/colorPrimary"
                     android:textColorHint="@color/colorPrimary_dark"
                     android:textSize="15dp" />
@@ -103,10 +103,10 @@
         <Button
             android:id="@+id/button_continue2"
             android:layout_width="0dp"
-            android:layout_height="48dp"
+            android:layout_height="35dp"
             android:layout_alignParentBottom="true"
             android:layout_margin="20dp"
-            android:layout_marginBottom="8dp"
+            android:layout_marginBottom="16dp"
             android:layout_marginLeft="8dp"
             android:layout_marginRight="123dp"
             android:background="@drawable/custombuttonnewaccount"

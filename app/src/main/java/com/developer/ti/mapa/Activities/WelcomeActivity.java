@@ -4,11 +4,13 @@ import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.KeyEvent;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
 import com.developer.ti.mapa.Dialog.DialogCreateUser1;
+import com.developer.ti.mapa.Dialog.DialogCreateUser2;
 import com.developer.ti.mapa.Dialog.DialogLogin;
 import com.developer.ti.mapa.R;
 
@@ -46,5 +48,11 @@ public class WelcomeActivity extends AppCompatActivity implements View.OnClickLi
                 d2.show(ft, "");
                 break;
         }
+    }
+
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+        finish();
     }
 }

@@ -1,23 +1,19 @@
 package com.developer.ti.mapa.Dialog;
 
-
 import android.app.Dialog;
-import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.DialogFragment;
-import android.support.v4.app.Fragment;
 import android.util.Log;
 import android.view.KeyEvent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 
-import com.developer.ti.mapa.Activities.WelcomeActivity;
-import com.developer.ti.mapa.Fragments.DriverDestinationFragment;
 import com.developer.ti.mapa.R;
 
-public class DialogCreateUser2 extends DialogFragment {
+public class DialogCreateUser2 extends DialogFragment implements View.OnClickListener{
     private static final String TAG = DialogCreateUser2.class.getSimpleName();
     private static final String ARG_PARAM1 = "param1";
     private static final String ARG_PARAM2 = "param2";
@@ -25,6 +21,7 @@ public class DialogCreateUser2 extends DialogFragment {
     private String mParam2;
     private View rootView;
     private Dialog dialog;
+    private Button btnContinue;
 
     public DialogCreateUser2() {
         // Required empty public constructor
@@ -69,13 +66,39 @@ public class DialogCreateUser2 extends DialogFragment {
     }
 
     private void init(View view){
+        rootView = view;
 
+        btnContinue = (Button) rootView.findViewById(R.id.button_continue2);
+
+        btnContinue.setOnClickListener(this);
+    }
+
+    @Override
+    public void onClick(View v) {
+        switch (v.getId()){
+            case R.id.button_continue2:
+                DialogCreateUser3 f1 = new DialogCreateUser3();
+                Bundle bundle = new Bundle();
+                bundle.putString("email", "email");
+                bundle.putInt("retorno", 0);
+                f1.setArguments(bundle);
+                f1.show(getActivity().getSupportFragmentManager(), "txn_tag");
+                break;
+        }
     }
 
     @Override
     public void onActivityCreated(Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
-        getDialog().getWindow().getAttributes().windowAnimations = R.style.DialogAnimationDeslize;
+        if(getArguments() != null){
+            if(getArguments().getBoolean("retorno")){
+                getDialog().getWindow().getAttributes().windowAnimations = R.style.DialogAnimationDeslizeReturn;
+            }else{
+                getDialog().getWindow().getAttributes().windowAnimations = R.style.DialogAnimationDeslize;
+            }
+        }else {
+            getDialog().getWindow().getAttributes().windowAnimations = R.style.DialogAnimationDeslize;
+        }
     }
 
     @Override
@@ -95,9 +118,8 @@ public class DialogCreateUser2 extends DialogFragment {
                 if (event.getAction() == KeyEvent.ACTION_UP && keyCode == KeyEvent.KEYCODE_BACK) {
                     DialogCreateUser1 f = new DialogCreateUser1();
                     Bundle bundle = new Bundle();
-                    bundle.putInt("returno", 2);
-                    DriverDestinationFragment fragment2 = new DriverDestinationFragment();
-                    fragment2.setArguments(bundle);
+                    bundle.putBoolean("retorno", true);
+                    f.setArguments(bundle);
                     f.show(getActivity().getSupportFragmentManager(), "txn_tag");
                     return true;
                 }

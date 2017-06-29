@@ -3,7 +3,8 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical">
+    android:orientation="vertical"
+    tools:context="com.developer.ti.mapa.Dialog.DialogCreateUser3">
 
     <RelativeLayout
         android:id="@+id/menu_toolbar"
@@ -30,8 +31,7 @@
     <android.support.constraint.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="@color/colorPrimary"
-        tools:context="com.developer.ti.mapa.Dialog.DialogCreateUser1">
+        android:background="@color/colorPrimary">
 
         <LinearLayout
             android:layout_width="0dp"
@@ -43,19 +43,20 @@
             app:layout_constraintRight_toRightOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             android:layout_marginBottom="8dp"
-            app:layout_constraintBottom_toTopOf="@+id/button_continue1">
-            <!-- TODO: DATOS NOMBRE -->
+            app:layout_constraintBottom_toTopOf="@+id/button_continue2">
+            <!-- TODO: Mail -->
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="10dp"
                 android:layout_marginLeft="20dp"
                 android:layout_marginRight="20dp"
-                android:text="¿Quién eres?"
+                android:text="Crea una contraseña"
                 android:textColor="@color/colorWhite"
                 android:textSize="34dp"
+                android:gravity="center"
                 android:textStyle="bold" />
-            <!-- TODO: nombre -->
+            <!-- TODO: contraseña  -->
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -81,7 +82,7 @@
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="Nombre "
+                        android:text="Contraseña"
                         android:textColor="@color/colorWhite"
                         android:textStyle="bold" />
                 </LinearLayout>
@@ -91,13 +92,13 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:background="@drawable/custonbordertextviewbackground"
-                    android:hint="Ingresa tu nombre"
-                    android:inputType="textCapWords"
+                    android:hint="********"
+                    android:inputType="textPassword"
                     android:textColor="@color/colorPrimary"
                     android:textColorHint="@color/colorPrimary_dark"
                     android:textSize="15dp" />
             </LinearLayout>
-            <!-- TODO: apellidos -->
+            <!-- TODO: contraseña  confirmar-->
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -123,26 +124,36 @@
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="Apellidos "
+                        android:text="Confirmar contraseña"
                         android:textColor="@color/colorWhite"
                         android:textStyle="bold" />
                 </LinearLayout>
 
                 <EditText
-                    android:id="@+id/edit_text_lastname"
+                    android:id="@+id/edit_text_password_confirm"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:background="@drawable/custonbordertextviewbackground"
-                    android:hint="Ingresa tus apellidos"
-                    android:inputType="textCapWords"
+                    android:hint="********"
+                    android:inputType="textPassword"
                     android:textColor="@color/colorPrimary"
                     android:textColorHint="@color/colorPrimary_dark"
                     android:textSize="15dp" />
             </LinearLayout>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Tu contraseña debe incluir al menos un simbolo y tener un minimo de 8 caracteres"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp"
+                android:layout_marginTop="10dp"
+                android:textColor="@color/colorWhite"/>
+
         </LinearLayout>
 
         <Button
-            android:id="@+id/button_continue1"
+            android:id="@+id/button_continue2"
             android:layout_width="0dp"
             android:layout_height="35dp"
             android:layout_alignParentBottom="true"

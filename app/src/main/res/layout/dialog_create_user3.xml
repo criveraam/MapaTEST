@@ -9,7 +9,7 @@
     <RelativeLayout
         android:id="@+id/menu_toolbar"
         android:layout_width="match_parent"
-        android:layout_height="50dp"
+        android:layout_height="55dp"
         android:layout_alignParentTop="true"
         android:background="@color/colorPrimary"
         app:layout_constraintLeft_toLeftOf="parent"
@@ -17,7 +17,7 @@
         app:layout_constraintTop_toTopOf="parent">
 
         <ImageView
-            android:id="@+id/image_view_close"
+            android:id="@+id/image_view_back_create_user_3"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:layout_gravity="bottom"
@@ -53,9 +53,9 @@
                 android:layout_marginRight="20dp"
                 android:text="Crea una contraseña"
                 android:textColor="@color/colorWhite"
-                android:textSize="34dp"
-                android:gravity="center"
-                android:textStyle="bold" />
+                android:textSize="36dp"
+                android:textStyle="bold"
+                android:gravity="center" />
             <!-- TODO: contraseña  -->
             <LinearLayout
                 android:layout_width="match_parent"
@@ -83,8 +83,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:text="Contraseña"
-                        android:textColor="@color/colorWhite"
-                        android:textStyle="bold" />
+                        android:textColor="@color/colorWhite" />
                 </LinearLayout>
 
                 <EditText
@@ -94,8 +93,8 @@
                     android:background="@drawable/custonbordertextviewbackground"
                     android:hint="********"
                     android:inputType="textPassword"
-                    android:textColor="@color/colorPrimary"
-                    android:textColorHint="@color/colorPrimary_dark"
+                    android:textColor="@color/colorWhite"
+                    android:textColorHint="@color/colorPrimary"
                     android:textSize="15dp" />
             </LinearLayout>
             <!-- TODO: contraseña  confirmar-->
@@ -125,8 +124,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:text="Confirmar contraseña"
-                        android:textColor="@color/colorWhite"
-                        android:textStyle="bold" />
+                        android:textColor="@color/colorWhite"/>
                 </LinearLayout>
 
                 <EditText
@@ -136,8 +134,8 @@
                     android:background="@drawable/custonbordertextviewbackground"
                     android:hint="********"
                     android:inputType="textPassword"
-                    android:textColor="@color/colorPrimary"
-                    android:textColorHint="@color/colorPrimary_dark"
+                    android:textColor="@color/colorWhite"
+                    android:textColorHint="@color/colorPrimary"
                     android:textSize="15dp" />
             </LinearLayout>
 
@@ -153,14 +151,11 @@
         </LinearLayout>
 
         <Button
-            android:id="@+id/button_continue2"
+            android:id="@+id/button_continue3"
             android:layout_width="0dp"
             android:layout_height="35dp"
             android:layout_alignParentBottom="true"
             android:layout_margin="20dp"
-            android:layout_marginBottom="16dp"
-            android:layout_marginLeft="8dp"
-            android:layout_marginRight="123dp"
             android:background="@drawable/custombuttonnewaccount"
             android:text="Continuar"
             android:textAppearance="@style/Widget.Design.AppBarLayout"
@@ -168,9 +163,7 @@
             android:textSize="17dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintRight_toRightOf="parent"
-            android:layout_marginStart="8dp"
-            android:layout_marginEnd="123dp" />
+            app:layout_constraintRight_toRightOf="parent"/>
 
     </android.support.constraint.ConstraintLayout>
 

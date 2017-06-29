@@ -3,7 +3,8 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical">
+    android:orientation="vertical"
+    tools:context="com.developer.ti.mapa.Dialog.DialogCreateUser4">
 
     <RelativeLayout
         android:id="@+id/menu_toolbar"
@@ -16,7 +17,7 @@
         app:layout_constraintTop_toTopOf="parent">
 
         <ImageView
-            android:id="@+id/image_view_back_create_user_1"
+            android:id="@+id/image_view_back_create_user_4"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:layout_gravity="bottom"
@@ -30,33 +31,32 @@
     <android.support.constraint.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="@color/colorPrimary"
-        tools:context="com.developer.ti.mapa.Dialog.DialogCreateUser1">
+        android:background="@color/colorPrimary">
 
         <LinearLayout
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_centerInParent="true"
-            android:layout_marginTop="8dp"
             android:orientation="vertical"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintRight_toRightOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
             android:layout_marginBottom="8dp"
-            app:layout_constraintBottom_toTopOf="@+id/button_continue1">
-            <!-- TODO: DATOS NOMBRE -->
+            app:layout_constraintBottom_toTopOf="@+id/button_continue4"
+            app:layout_constraintTop_toTopOf="parent"
+            android:layout_marginTop="8dp">
+            <!-- TODO: Mail -->
             <TextView
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
+                android:layout_height="wrap_content"
                 android:layout_marginBottom="10dp"
                 android:layout_marginLeft="20dp"
                 android:layout_marginRight="20dp"
-                android:text="¿Quién eres?"
+                android:text="Número telefonico"
                 android:textColor="@color/colorWhite"
                 android:textSize="36dp"
                 android:textStyle="bold"
-                android:gravity="center"/>
-            <!-- TODO: nombre -->
+                android:gravity="center" />
+            <!-- TODO: contraseña  -->
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -69,7 +69,7 @@
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:gravity="left|center_vertical"
+                    android:gravity="center"
                     android:orientation="horizontal">
 
                     <ImageView
@@ -80,9 +80,9 @@
                         app:srcCompat="@drawable/ic_dot" />
 
                     <TextView
-                        android:layout_width="wrap_content"
+                        android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="Nombre "
+                        android:text="Número de teléfono"
                         android:textColor="@color/colorWhite" />
                 </LinearLayout>
 
@@ -91,61 +91,32 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:background="@drawable/custonbordertextviewbackground"
-                    android:hint="Ingresa tu nombre"
-                    android:inputType="textCapWords"
+                    android:hint="5512123434"
+                    android:inputType="number"
+                    android:maxLength="10"
                     android:textColor="@color/colorWhite"
                     android:textColorHint="@color/colorPrimary"
                     android:textSize="15dp" />
             </LinearLayout>
-            <!-- TODO: apellidos -->
-            <LinearLayout
+            <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginBottom="5dp"
+                android:text="Con tu número de telefono, nosotros sabremos que estamos verificando a una persona"
                 android:layout_marginLeft="20dp"
                 android:layout_marginRight="20dp"
-                android:layout_marginTop="5dp"
-                android:orientation="vertical">
+                android:layout_marginTop="10dp"
+                android:textColor="@color/colorWhite"/>
 
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="horizontal">
-                    <ImageView
-                        android:layout_width="10dp"
-                        android:layout_height="10dp"
-                        android:layout_gravity="bottom"
-                        android:paddingRight="5dp"
-                        app:srcCompat="@drawable/ic_dot" />
-
-                    <TextView
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:text="Apellidos "
-                        android:textColor="@color/colorWhite"/>
-                </LinearLayout>
-
-                <EditText
-                    android:id="@+id/edit_text_lastname"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:hint="Ingresa tus apellidos"
-                    android:inputType="textCapWords"
-                    android:background="@drawable/custonbordertextviewbackground"
-                    android:textColor="@color/colorWhite"
-                    android:textColorHint="@color/colorPrimary"
-                    android:textSize="15dp"/>
-            </LinearLayout>
         </LinearLayout>
 
         <Button
-            android:id="@+id/button_continue1"
+            android:id="@+id/button_continue4"
             android:layout_width="0dp"
             android:layout_height="35dp"
             android:layout_alignParentBottom="true"
             android:layout_margin="20dp"
             android:background="@drawable/custombuttonnewaccount"
-            android:text="Continuar"
+            android:text="Registrar"
             android:textAppearance="@style/Widget.Design.AppBarLayout"
             android:textColor="@color/colorWhite"
             android:textSize="17dp"
@@ -156,3 +127,4 @@
     </android.support.constraint.ConstraintLayout>
 
 </LinearLayout>
+

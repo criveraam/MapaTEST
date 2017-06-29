@@ -1,42 +1,35 @@
 package com.developer.ti.mapa.Dialog;
 
 import android.app.Dialog;
-import android.content.Context;
-import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.DialogFragment;
 import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentManager;
-import android.util.Log;
 import android.view.KeyEvent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ImageView;
-import android.widget.Toast;
 
-import com.developer.ti.mapa.Activities.WelcomeActivity;
 import com.developer.ti.mapa.R;
 
-public class DialogCreateUser1 extends DialogFragment implements View.OnClickListener{
-    private static final String TAG = DialogCreateUser1.class.getSimpleName();
+public class DialogCreateUser4 extends DialogFragment implements View.OnClickListener{
     private static final String ARG_PARAM1 = "param1";
     private static final String ARG_PARAM2 = "param2";
     private String mParam1;
     private String mParam2;
     private Dialog dialog;
-    private Button btnContinue1;
-    private ImageView ivBack;
     private View rootView;
+    private ImageView ivBack;
+    private Button btnContinue;
 
-    public DialogCreateUser1() {
+    public DialogCreateUser4() {
         // Required empty public constructor
     }
 
-    public static DialogCreateUser1 newInstance(String param1, String param2) {
-        DialogCreateUser1 fragment = new DialogCreateUser1();
+    public static DialogCreateUser4 newInstance(String param1, String param2) {
+        DialogCreateUser4 fragment = new DialogCreateUser4();
         Bundle args = new Bundle();
         args.putString(ARG_PARAM1, param1);
         args.putString(ARG_PARAM2, param2);
@@ -59,26 +52,33 @@ public class DialogCreateUser1 extends DialogFragment implements View.OnClickLis
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setStyle(DialogFragment.STYLE_NORMAL, R.style.MY_DIALOG);
+        if (getArguments() != null) {
+            mParam1 = getArguments().getString(ARG_PARAM1);
+            mParam2 = getArguments().getString(ARG_PARAM2);
+        }
     }
 
     @Override
     public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
+
         init(view);
-    }
-
-    private void init(View view){
-        rootView = view;
-        ivBack = (ImageView) rootView.findViewById(R.id.image_view_back_create_user_1);
-        btnContinue1 = (Button) rootView.findViewById(R.id.button_continue1);
-
-        ivBack.setOnClickListener(this);
-        btnContinue1.setOnClickListener(this);
     }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        return inflater.inflate(R.layout.dialog_create_user1, container, false);
+        // Inflate the layout for this fragment
+        return inflater.inflate(R.layout.dialog_create_user4, container, false);
+    }
+
+    private void init(View view){
+        rootView = view;
+
+        ivBack = (ImageView) rootView.findViewById(R.id.image_view_back_create_user_4);
+        btnContinue = (Button) rootView.findViewById(R.id.button_continue4);
+
+        ivBack.setOnClickListener(this);
+        btnContinue.setOnClickListener(this);
     }
 
     @Override
@@ -87,20 +87,12 @@ public class DialogCreateUser1 extends DialogFragment implements View.OnClickLis
         if(getArguments() != null){
             if(getArguments().getBoolean("retorno")){
                 getDialog().getWindow().getAttributes().windowAnimations = R.style.DialogAnimationDeslizeReturn;
+            }else{
+                getDialog().getWindow().getAttributes().windowAnimations = R.style.DialogAnimationDeslize;
             }
         }else {
-            getDialog().getWindow().getAttributes().windowAnimations = R.style.DialogAnimation;
+            getDialog().getWindow().getAttributes().windowAnimations = R.style.DialogAnimationDeslize;
         }
-    }
-
-    @Override
-    public void onAttach(Context context) {
-        super.onAttach(context);
-    }
-
-    @Override
-    public void onDetach() {
-        super.onDetach();
     }
 
     @Override
@@ -112,7 +104,7 @@ public class DialogCreateUser1 extends DialogFragment implements View.OnClickLis
             @Override
             public boolean onKey(View v, int keyCode, KeyEvent event) {
                 if (event.getAction() == KeyEvent.ACTION_UP && keyCode == KeyEvent.KEYCODE_BACK) {
-                    back();
+                    backParams();
                     return true;
                 }
                 return false;
@@ -123,22 +115,24 @@ public class DialogCreateUser1 extends DialogFragment implements View.OnClickLis
     @Override
     public void onClick(View v) {
         switch (v.getId()){
-            case R.id.button_continue1:
-                DialogCreateUser2 f1 = new DialogCreateUser2();
+            case R.id.image_view_back_create_user_4:
+                backParams();
+                break;
+            case R.id.button_continue4:
+                DialogCreateUser5 f1 = new DialogCreateUser5();
                 Bundle bundle = new Bundle();
-                bundle.putString("name", "Nombre de prueba");
-                bundle.putString("lastname", "Apellidos de prueba");
+                bundle.putString("email", "email");
                 bundle.putInt("retorno", 0);
                 f1.setArguments(bundle);
                 f1.show(getActivity().getSupportFragmentManager(), "txn_tag");
-                break;
-            case R.id.image_view_back_create_user_1:
-                back();
-                break;
         }
     }
 
-    private void back(){
-        startActivity(new Intent(getContext(), WelcomeActivity.class));
+    private void backParams(){
+        DialogCreateUser3 f = new DialogCreateUser3();
+        Bundle bundle = new Bundle();
+        bundle.putBoolean("retorno", true);
+        f.setArguments(bundle);
+        f.show(getActivity().getSupportFragmentManager(), "txn_tag");
     }
 }

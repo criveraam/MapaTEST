@@ -10,6 +10,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.ImageView;
 
 import com.developer.ti.mapa.R;
 
@@ -22,6 +23,7 @@ public class DialogCreateUser2 extends DialogFragment implements View.OnClickLis
     private View rootView;
     private Dialog dialog;
     private Button btnContinue;
+    private ImageView ivBack;
 
     public DialogCreateUser2() {
         // Required empty public constructor
@@ -68,23 +70,11 @@ public class DialogCreateUser2 extends DialogFragment implements View.OnClickLis
     private void init(View view){
         rootView = view;
 
+        ivBack = (ImageView) rootView.findViewById(R.id.image_view_back_create_user_2);
         btnContinue = (Button) rootView.findViewById(R.id.button_continue2);
 
+        ivBack.setOnClickListener(this);
         btnContinue.setOnClickListener(this);
-    }
-
-    @Override
-    public void onClick(View v) {
-        switch (v.getId()){
-            case R.id.button_continue2:
-                DialogCreateUser3 f1 = new DialogCreateUser3();
-                Bundle bundle = new Bundle();
-                bundle.putString("email", "email");
-                bundle.putInt("retorno", 0);
-                f1.setArguments(bundle);
-                f1.show(getActivity().getSupportFragmentManager(), "txn_tag");
-                break;
-        }
     }
 
     @Override
@@ -116,16 +106,38 @@ public class DialogCreateUser2 extends DialogFragment implements View.OnClickLis
             @Override
             public boolean onKey(View v, int keyCode, KeyEvent event) {
                 if (event.getAction() == KeyEvent.ACTION_UP && keyCode == KeyEvent.KEYCODE_BACK) {
-                    DialogCreateUser1 f = new DialogCreateUser1();
-                    Bundle bundle = new Bundle();
-                    bundle.putBoolean("retorno", true);
-                    f.setArguments(bundle);
-                    f.show(getActivity().getSupportFragmentManager(), "txn_tag");
+                    backParams();
                     return true;
                 }
                 return false;
             }
         });
+    }
+
+    @Override
+    public void onClick(View v) {
+        switch (v.getId()){
+            case R.id.button_continue2:
+                DialogCreateUser3 f1 = new DialogCreateUser3();
+                Bundle bundle = new Bundle();
+                bundle.putString("email", "email");
+                bundle.putInt("retorno", 0);
+                f1.setArguments(bundle);
+                f1.show(getActivity().getSupportFragmentManager(), "txn_tag");
+                break;
+            case R.id.image_view_back_create_user_2:
+                backParams();
+                break;
+        }
+    }
+
+    private void backParams(){
+        DialogCreateUser1 f = new DialogCreateUser1();
+        Bundle bundle = new Bundle();
+        bundle.putBoolean("retorno", true);
+        f.setArguments(bundle);
+        f.show(getActivity().getSupportFragmentManager(), "txn_tag");
+
     }
 
 }

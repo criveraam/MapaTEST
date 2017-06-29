@@ -8,10 +8,12 @@ import android.view.KeyEvent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
+import android.widget.ImageView;
 
 import com.developer.ti.mapa.R;
 
-public class DialogCreateUser3 extends DialogFragment{
+public class DialogCreateUser3 extends DialogFragment implements View.OnClickListener{
     private static final String TAG = DialogCreateUser3.class.getSimpleName();
     private static final String ARG_PARAM1 = "param1";
     private static final String ARG_PARAM2 = "param2";
@@ -19,6 +21,8 @@ public class DialogCreateUser3 extends DialogFragment{
     private String mParam2;
     private View rootView;
     private Dialog dialog;
+    private ImageView ivBack;
+    private Button btnContinue;
 
     public DialogCreateUser3() {
         // Required empty public constructor
@@ -63,6 +67,12 @@ public class DialogCreateUser3 extends DialogFragment{
 
     private void init(View view){
         rootView = view;
+
+        ivBack = (ImageView) rootView.findViewById(R.id.image_view_back_create_user_3);
+        btnContinue = (Button) rootView.findViewById(R.id.button_continue3);
+
+        ivBack.setOnClickListener(this);
+        btnContinue.setOnClickListener(this);
     }
 
     @Override
@@ -94,11 +104,7 @@ public class DialogCreateUser3 extends DialogFragment{
             @Override
             public boolean onKey(View v, int keyCode, KeyEvent event) {
                 if (event.getAction() == KeyEvent.ACTION_UP && keyCode == KeyEvent.KEYCODE_BACK) {
-                    DialogCreateUser2 f = new DialogCreateUser2();
-                    Bundle bundle = new Bundle();
-                    bundle.putBoolean("retorno", true);
-                    f.setArguments(bundle);
-                    f.show(getActivity().getSupportFragmentManager(), "txn_tag");
+                    backParams();
                     return true;
                 }
                 return false;
@@ -106,4 +112,28 @@ public class DialogCreateUser3 extends DialogFragment{
         });
     }
 
+    @Override
+    public void onClick(View v) {
+        switch (v.getId()){
+            case R.id.image_view_back_create_user_3:
+                backParams();
+                break;
+            case R.id.button_continue3:
+                DialogCreateUser4 f1 = new DialogCreateUser4();
+                Bundle bundle = new Bundle();
+                bundle.putString("email", "email");
+                bundle.putInt("retorno", 0);
+                f1.setArguments(bundle);
+                f1.show(getActivity().getSupportFragmentManager(), "txn_tag");
+                break;
+        }
+    }
+
+    private void backParams(){
+        DialogCreateUser2 f = new DialogCreateUser2();
+        Bundle bundle = new Bundle();
+        bundle.putBoolean("retorno", true);
+        f.setArguments(bundle);
+        f.show(getActivity().getSupportFragmentManager(), "txn_tag");
+    }
 }
